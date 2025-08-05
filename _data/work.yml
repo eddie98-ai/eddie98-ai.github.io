@@ -1,0 +1,29 @@
+# This file contains the data for your "Work" page.
+
+- title: Professional Work Experience
+  type: time_table
+  contents:
+    - title: Lead DevOps & MLOps Engineer
+      institution: Maly Tech Ltd, Dubai, UAE
+      year: 2023 - Present
+      description:
+        - Led deployment of AI-powered fintech applications on AWS and GCP.
+        - Designed and maintained scalable infrastructure using Docker and ECS.
+        - Built and maintained CI/CD pipelines with GitLab for automated workflows.
+        - Implemented full-stack MLOps workflows for model deployment and monitoring.
+    - title: Information Systems Engineer
+      institution: Higher Institute for Applied Sciences and Technology (HIAST), Damascus, Syria
+      year: 2022 - 2024
+      description:
+        - Delivered undergraduate lectures in Operating Systems, Network Routing, and Security.
+        - Supervised multiple undergraduate graduation projects.
+    - title: Data Engineer
+      institution: Nextinuous, California, USA
+      year: 2023 - 2024
+      description:
+        - Developed scalable data pipelines using the ELK Stack and Apache NiFi.
+    - title: Backend Developer
+      institution: DIB GmbH, Germany
+      year: 2022 - 2023
+      description:
+        - Engineered and deployed VoIP communication systems using Asterisk.

@@ -1,0 +1,49 @@
+- title: University Teaching & Supervision
+  type: time_table
+  contents:
+    - title: Information Systems Engineer (Lecturer & Supervisor)
+      institution: Higher Institute for Applied Sciences and Technology (HIAST), Damascus, Syria
+      year: 2022 - 2024
+      description:
+        - Delivered undergraduate lectures and tutorials in **Operating Systems, Network Routing, and Network Security**.
+        - Designed comprehensive course materials, assignments, and hands-on lab exercises.
+        - Supervised and evaluated multiple undergraduate graduation projects.
+        
+    - title: Assistant Lecturer
+      institution: Arab International University (AIU), Damascus, Syria
+      year: 2023 - 2023
+      description:
+        - Delivered hands-on lab sessions for **Operating Systems and Linux**, focusing on kernel management and shell scripting.
+        
+    - title: Assistant Supervisor
+      institution: Al-Sham Private University (ASPU), Damascus, Syria
+      year: 2023 - 2023
+      description:
+        - Supervised a graduation project integrating cybersecurity techniques with machine learning for intelligent threat detection.
+
+- title: Professional Tutoring
+  type: time_table
+  contents:
+    - title: Online Tutor
+      institution: Freelance
+      year: 2021 - Present # Replace with your actual years
+      description:
+        - Provided one-on-one and group tutoring sessions for students and professionals.
+        - Covered subjects including **Artificial Intelligence, Machine Learning, Computer Networks, and Operating Systems**.
+        - Developed customized learning plans to suit individual student needs and goals.
+
+- title: Volunteer & Community Teaching
+  type: time_table
+  contents:
+    - title: AI Content Creator (Volunteer)
+      institution: Higher Institute for Applied Sciences and Technology (HIAST), Damascus
+      year: 2021 - 2022 # Replace with your actual years
+      description:
+        - "Designed and delivered workshops on AI fundamentals for non-IT students to foster cross-disciplinary knowledge."
+        - Created accessible content to demystify complex machine learning concepts.
+    - title: Chess Teacher & Judge
+      institution: HIAST Chess Club, Damascus
+      year: 2020 - 2022
+      description:
+        - Taught chess fundamentals, opening theory, and endgame strategies to club members.
+        - Organized and officiated internal tournaments and competitions.

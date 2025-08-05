@@ -1,0 +1,81 @@
+# =====================================================================
+# This is the FINAL, corrected CV data file with the correct data structure.
+# This will fix the raw text output and restore the design.
+# =====================================================================
+
+- title: Education
+  type: time_table
+  contents:
+    - title: BSc, Information Systems Engineering
+      institution: Higher Institute for Applied Sciences and Technology (HIAST), Damascus, Syria
+      year: 2016 - 2022
+      description:
+        - 'Thesis: *Deep Learning for Launching and Thwarting Attacks on AI-based Intrusion Detection Systems.*'
+        - Final Grade of 75.65%, Ranked 1st in class.
+
+- title: Work Experience
+  type: time_table
+  contents:
+    - title: Lead DevOps & MLOps Engineer
+      institution: Maly Tech Ltd, Dubai, UAE
+      year: 2023 - Present
+      description:
+        - Led deployment of AI-powered fintech applications on AWS and GCP.
+        - Designed and maintained scalable infrastructure using Docker and ECS.
+        - Built and maintained CI/CD pipelines with GitLab for automated workflows.
+        - Implemented full-stack MLOps workflows for model deployment and monitoring.
+    - title: Information Systems Engineer
+      institution: Higher Institute for Applied Sciences and Technology (HIAST), Damascus, Syria
+      year: 2022 - 2024
+      description:
+        - Delivered undergraduate lectures in Operating Systems, Network Routing, and Security.
+        - Supervised multiple undergraduate graduation projects.
+    - title: Data Engineer
+      institution: Nextinuous, California, USA
+      year: 2023 - 2024
+      description:
+        - Developed scalable data pipelines using the ELK Stack and Apache NiFi.
+    - title: Backend Developer
+      institution: DIB GmbH, Germany
+      year: 2022 - 2023
+      description:
+        - Engineered and deployed VoIP communication systems using Asterisk.
+
+- title: Technical Skills
+  type: nested_list
+  contents:
+    - title: Cloud & Infrastructure
+      items:
+        - "<b>Platforms:</b> AWS (EC2, ECS, RDS), Google Cloud Platform (GCP)"
+        - "<b>DevOps & Automation:</b> CI/CD with GitLab & Jenkins, Docker, Bash Scripting, System Orchestration"
+        - "<b>Monitoring:</b> ELK Stack (Elasticsearch, Logstash, Kibana), Cloud-native monitoring"
+    - title: AI & Data
+      items:
+        - "<b>AI & Machine Learning:</b> Deep Learning (CNNs, LSTMs, GANs), LLMs, TensorFlow, PyTorch, Keras, Scikit-learn"
+        - "<b>Data Engineering:</b> ETL Pipelines with Apache NiFi & AWS Glue, Data Warehousing"
+    - title: Programming & Tools
+      items:
+        - "<b>Languages & Databases:</b> Python, SQL (PostgreSQL, MariaDB), C++, Java, JavaScript"
+        - "<b>Tools:</b> Git, Django, FastAPI"
+
+- title: Honours and Awards
+  type: time_table
+  contents:
+    - title: 
+      items:
+        - title: Card of Congratulations – HIAST (Awarded for achieving first rank)
+          year: 2021
+        - title: Introduction to Personal Branding - University of Virginia (Coursera)
+          year: 2020
+        - title: Certificate of Achievement — Syrian Collegiate Programming Contest
+          year: 2018
+
+- title: Languages
+  type: map
+  contents:
+    - name: Arabic
+      value: Native Proficiency
+    - name: English
+      value: 'IELTS Certified: Reading C1, Writing B2, Listening B2, Speaking B2'
+    - name: French
+      value: Conversant with basic reading, writing, and speaking skills
