@@ -33,7 +33,7 @@ icon: 🧠 # AI/brain emoji fits your biomedical and AI focus
 # --- URL & DEPLOYMENT (IMPORTANT) ---
 # This should be your GitHub Pages URL.
 url: https://eddie98-ai.github.io
-baseurl: ""
+baseurl: "/my-portfolio"
 
 last_updated: true
 impressum_path: # Leave blank or set later if needed for GDPR compliance
