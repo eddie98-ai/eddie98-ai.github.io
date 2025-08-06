@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://eddie98-ai.github.io/ahmad/sitemap.xml
