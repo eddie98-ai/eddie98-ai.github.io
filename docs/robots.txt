@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://eddie98-ai.github.io/my-portfolio/sitemap.xml
+Sitemap: https://eddie98-ai.github.io/sitemap.xml
