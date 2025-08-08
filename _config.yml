@@ -657,3 +657,20 @@ jsonresume:
   - languages
   - interests
   - references
+
+
+
+# ... (rest of your config file) ...
+
+# -----------------------------------------------------------------------------
+# Jekyll Defaults
+# -----------------------------------------------------------------------------
+#
+# Tell Jekyll how to build permalinks for collections
+defaults:
+  - scope:
+      path: ""
+      type: "projects" # this targets your _projects collection
+    values:
+      layout: "page"
+      permalink: /projects/:title/
