@@ -402,6 +402,11 @@ ninja.data = [{
           description: "A novel CNN architecture, AdjCNet, for classifying COVID-19, CAP, and Normal cases from CT scans.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/10_covid_diagnosis/";
+            },},{id: "projects-ai-powered-sign-language-amp-assistive-technology",
+          title: 'AI-Powered Sign Language &amp;amp; Assistive Technology',
+          description: "A real-time sign language translation and speech therapy platform.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/2_sign_language/";
             },},{id: "projects-smart-recipe-recommendation-system",
           title: 'Smart Recipe Recommendation System',
           description: "A full-stack Django app recommending recipes based on ingredients and health needs.",
