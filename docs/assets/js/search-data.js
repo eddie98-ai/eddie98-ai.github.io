@@ -406,7 +406,7 @@ ninja.data = [{
           title: 'AI-Powered Sign Language &amp;amp; Assistive Technology',
           description: "A real-time sign language translation and speech therapy platform.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/2_sign_language/";
+              window.location.href = "/projects/sign-language-translation/";
             },},{id: "projects-smart-recipe-recommendation-system",
           title: 'Smart Recipe Recommendation System',
           description: "A full-stack Django app recommending recipes based on ingredients and health needs.",
