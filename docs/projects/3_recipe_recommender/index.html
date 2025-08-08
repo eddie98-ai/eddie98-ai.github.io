@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!-- Metadata, OpenGraph and Schema.org -->
+
+
+
+
+<!-- Standard metadata -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>
+  
+  
+    
+      Smart Recipe Recommendation System | Ahmad Debow (Edd)
+    
+  
+</title>
+<meta name="author" content="Ahmad  Debow">
+<meta name="description" content="A full-stack Django app recommending recipes based on ingredients and health needs.">
+
+  <meta name="keywords" content="Ahmad Debow, AI, MLOps, DevOps, Machine Learning, Deep Learning, Generative Adversarial Networks, GANs, AWS, GCP, Cloud Computing, Python, Docker, GitLab, CI/CD, Computer Vision, NLP, Large Language Models, Biomedical AI, Intrusion Detection Systems">
+
+
+
+
+
+
+  <!-- OpenGraph -->
+  <meta property="og:site_name" content="Ahmad Debow (Edd)">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ahmad Debow (Edd) | Smart Recipe Recommendation System">
+  <meta property="og:url" content="http://localhost:4000/projects/3_recipe_recommender/">
+  <meta property="og:description" content="A full-stack Django app recommending recipes based on ingredients and health needs.">
+  
+  <meta property="og:locale" content="en">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Smart Recipe Recommendation System">
+  <meta name="twitter:description" content="A full-stack Django app recommending recipes based on ingredients and health needs.">
+  
+  
+
+
+
+
+
+<!-- Bootstrap & MDB -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous">
+
+
+
+<!-- Fonts & Icons -->
+<link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5">
+<link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772">
+<link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap">
+
+<!-- Code Syntax Highlighting -->
+<link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light">
+
+
+
+<!-- Styles -->
+
+
+
+
+  <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%A7%A0&lt;/text&gt;&lt;/svg&gt;">
+
+<link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
+<link rel="canonical" href="http://localhost:4000/projects/3_recipe_recommender/">
+
+
+  <!-- Dark Mode -->
+  <script src="/assets/js/theme.js?a81d82887dd692e91686b43de4542f18"></script>
+  <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark">
+  <script>
+    initTheme();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  </head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav ">
+    <!-- Header -->
+    <header>
+  <!-- Nav Bar -->
+  <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation">
+    <div class="container">
+      
+        <a class="navbar-brand title font-weight-lighter" href="/">
+          Ahmad Debow (Edd)
+        </a>
+      
+      <!-- Navbar Toggle -->
+      <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse text-right" id="navbarNav">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          
+
+          <!-- About -->
+          <li class="nav-item ">
+            <a class="nav-link" href="/">About
+              
+            </a>
+          </li>
+
+          <!-- Other pages -->
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/publications/">publications
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item active">
+                  <a class="nav-link" href="/projects/">projects
+                    
+                      <span class="sr-only">(current)</span>
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/cv/">cv
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/work/">work
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/teaching/">teaching
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/people/">people
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+          
+          
+          
+            <!-- Toogle theme mode -->
+            <li class="toggle-container">
+              <button id="light-toggle" title="Change theme">
+                <i class="ti ti-sun-moon" id="light-toggle-system"></i>
+                <i class="ti ti-moon-filled" id="light-toggle-dark"></i>
+                <i class="ti ti-sun-filled" id="light-toggle-light"></i>
+              </button>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+    <!-- Scrolling Progress Bar -->
+    <progress id="progress" value="0">
+      <div class="progress-container">
+        <span class="progress-bar"></span>
+      </div>
+    </progress>
+  
+</header>
+
+
+    <!-- Content -->
+    <div class="container mt-5" role="main">
+      
+        
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">Smart Recipe Recommendation System</h1>
+    <p class="post-description">A full-stack Django app recommending recipes based on ingredients and health needs.</p>
+  </header>
+
+  <article>
+    <p>This project is a full-stack Django web application that delivers personalized recipe recommendations. It was built upon a unique, fused dataset combining over 400 thousand global recipes with a custom-collected corpus of Syrian cuisine. The system leverages a hybrid recommendation engine and a nutritional analysis pipeline to provide meal suggestions that are not only tailored to a user’s available ingredients but also to their specific health and dietary requirements.</p>
+
+<hr>
+
+<!-- 1. The Styles (CSS) -->
+<style>
+  .slider-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 1rem auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .slider {
+    display: flex;
+    /* The transition creates the smooth sliding effect */
+    transition: transform 0.5s ease-in-out;
+  }
+  .slider img {
+    width: 100%;
+    flex-shrink: 0;
+    display: block;
+  }
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    user-select: none; /* Prevents text selection on double click */
+    z-index: 10;
+    transition: background-color 0.2s;
+  }
+  .slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  #prevBtn {
+    left: 15px;
+  }
+  #nextBtn {
+    right: 15px;
+  }
+</style>
+
+<!-- 2. The Slider Structure (HTML) -->
+<div class="slider-wrapper">
+  <!-- The slider container that moves -->
+  <div class="slider">
+    <img src="/assets/img/web-prochour/slider1.jpg" alt="Recipe Image 1">
+    <img src="/assets/img/web-prochour/slider2.jpg" alt="Recipe Image 2">
+    <img src="/assets/img/web-prochour/slider3.jpg" alt="Recipe Image 3">
+    <img src="/assets/img/web-prochour/slider4.jpg" alt="Recipe Image 4">
+  </div>
+  <!-- Manual Arrow Buttons -->
+  <div class="slider-btn" id="prevBtn">❮</div>
+  <div class="slider-btn" id="nextBtn">❯</div>
+</div>
+
+<!-- 3. The Functionality (JavaScript) -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const slider = document.querySelector('.slider');
+  // Important: Get all images inside the slider
+  const slides = document.querySelectorAll('.slider img');
+  const prevBtn = document.querySelector('#prevBtn');
+  const nextBtn = document.querySelector('#nextBtn');
+
+  let currentIndex = 0;
+  // Store the interval timer so we can reset it
+  let autoSlideInterval;
+
+  // Function to move the slider to the correct position
+  function updateSlider() {
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  // Function to handle moving to the next slide
+  function nextSlide() {
+    // The modulo operator (%) creates the infinite loop
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlider();
+  }
+
+  // Function to handle moving to the previous slide
+  function prevSlide() {
+    // This formula correctly handles looping backwards from 0
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlider();
+  }
+
+  // Function to start or reset the automatic sliding timer
+  function resetTimer() {
+    // Clear any existing timer
+    clearInterval(autoSlideInterval);
+    // Start a new one
+    autoSlideInterval = setInterval(nextSlide, 6000); // 6000ms = 6 seconds
+  }
+
+  // Add event listeners for the arrow buttons
+  nextBtn.addEventListener('click', () => {
+    nextSlide();
+    resetTimer(); // Reset the timer whenever the user clicks
+  });
+
+  prevBtn.addEventListener('click', () => {
+    prevSlide();
+    resetTimer(); // Reset the timer whenever the user clicks
+  });
+
+  // Start the automatic slideshow when the page loads
+  resetTimer();
+});
+</script>
+
+<hr>
+
+<h3 id="system-architecture--features">System Architecture &amp; Features</h3>
+
+<p>The application is architected around three core modules: a hybrid recommendation engine, a nutritional analysis pipeline, and an AI-powered health chatbot.</p>
+
+<h4 id="1-hybrid-recommendation-engine">1. Hybrid Recommendation Engine</h4>
+
+<p>To provide robust recommendations, the system combines two distinct methods: content-based filtering for granular matching and set-based similarity for broader suggestions.</p>
+
+<ul>
+  <li>
+    <p><strong>Content-Based Filtering via Cosine Similarity:</strong>
+This method treats each recipe as a document and its ingredients as terms. Ingredients are converted into numerical vectors using a TF-IDF (Term Frequency-Inverse Document Frequency) approach. The similarity between two recipes is then calculated as the cosine of the angle between their vectors, providing a sophisticated measure of ingredient overlap and importance.</p>
+
+    <p>The similarity score is calculated using the formula:
+\(\text{similarity} = \cos(\theta) = \frac{\mathbf{A} \cdot \mathbf{B}}{\|\mathbf{A}\| \|\mathbf{B}\|} = \frac{\sum_{i=1}^{n} A_i B_i}{\sqrt{\sum_{i=1}^{n} A_i^2} \sqrt{\sum_{i=1}^{n} B_i^2}}\)</p>
+  </li>
+  <li>
+    <p><strong>Set-Based Similarity via Jaccard Index:</strong>
+This method provides a faster, broader comparison by treating the ingredients of two recipes as sets. The Jaccard Index measures the similarity between these sets, defined as the size of the intersection divided by the size of the union. It is particularly effective for finding recipes with common core ingredients.</p>
+
+    <p>The Jaccard Index is calculated as:
+\(J(A, B) = \frac{|A \cap B|}{|A \cup B|}\)</p>
+  </li>
+</ul>
+
+<h4 id="2-nutritional-analysis-pipeline">2. Nutritional Analysis Pipeline</h4>
+
+<p>This module acts as a powerful filtering layer on top of the recommendation engine. For each recipe, the system aggregates the nutritional profile (salt, carbohydrates, fat, free sugars, protein) from its constituent ingredients. When a user specifies a health condition (e.g., hypertension, diabetes), this pipeline filters the recommended recipes to ensure they comply with dietary guidelines, such as being low in sodium or sugar.</p>
+
+<h4 id="3-specialized-health-qa-chatbot">3. Specialized Health Q&amp;A Chatbot</h4>
+
+<p>A dedicated chatbot was developed to answer user questions about healthy eating and nutrition. To ensure factual and safe responses, it was built using a Retrieval-Augmented Generation (RAG) approach with open-source Hugging Face models.</p>
+
+<ul>
+  <li>
+<strong>Prompt Engineering:</strong> When a user asks a question, the system first retrieves relevant, pre-vetted nutritional facts from a curated knowledge base.</li>
+  <li>
+<strong>Contextual Injection:</strong> These facts are then injected directly into a carefully crafted prompt for a generative language model. This grounds the model’s response in factual data, preventing hallucination and ensuring the advice is focused and reliable.</li>
+</ul>
+
+<hr>
+
+<h3 id="technology-stack">Technology Stack</h3>
+<ul>
+  <li>
+<strong>Backend:</strong> Django</li>
+  <li>
+<strong>ML &amp; Data Science:</strong> Scikit-learn, Pandas, NLTK</li>
+  <li>
+<strong>NLP &amp; Chatbot:</strong> Hugging Face Transformers (for models and embeddings)</li>
+  <li>
+<strong>Database:</strong> SQLite</li>
+</ul>
+
+  </article>
+
+  
+
+  
+</div>
+
+      
+    </div>
+
+    <!-- Footer -->
+    
+
+
+  <footer class="fixed-bottom" role="contentinfo">
+    <div class="container mt-0">
+      
+  © Copyright 2025
+  Ahmad
+  
+  Debow. 
+  
+  
+    Last updated: August 08, 2025.
+  
+
+    </div>
+  </footer>
+
+
+
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<!-- Bootsrap & MDB scripts -->
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+
+  <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/masonry.js?a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Medium Zoom JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script>
+
+
+
+
+
+
+<!-- Load Common JS -->
+<script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script>
+<script defer src="/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"></script>
+<script defer src="/assets/js/copy_code.js?c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script>
+
+<!-- Jupyter Open External Links New Tab -->
+<script defer src="/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script>
+
+<!-- Badges -->
+
+  <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+
+
+  <script async src="https://badge.dimensions.ai/badge.js"></script>
+
+
+
+  <!-- MathJax -->
+  <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script>
+  
+    <script src="/assets/js/mathjax-setup.js?a5bb4e6a542c546dd929b24b8b236dfd"></script>
+    <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+  <!-- Scrolling Progress Bar -->
+  <script defer src="/assets/js/progress-bar.js?2f30e0e6801ea8f5036fa66e1ab0a71a" type="text/javascript"></script>
+
+
+
+
+
+
+
+  <!-- Back to Top -->
+  <script src="/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script>
+  <script>
+    addBackToTop();
+  </script>
+
+
+
+
+
+
+  </body>
+</html>
