@@ -12,6 +12,3 @@ horizontal: false
 
 {% include 2_sign_language.md %}
 
-{% include another_project.md %}
-
-{% include yet_another_project.md %}
