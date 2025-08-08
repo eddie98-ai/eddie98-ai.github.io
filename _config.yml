@@ -165,8 +165,7 @@ collections:
     output: true
   projects:
     output: true
-    permalink: /projects/:title/
-
+    permalink: /projects/:name/
 # -----------------------------------------------------------------------------
 # Jekyll settings
 # -----------------------------------------------------------------------------
