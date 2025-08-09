@@ -402,6 +402,11 @@ ninja.data = [{
           description: "A novel CNN architecture, AdjCNet, for classifying COVID-19, CAP, and Normal cases from CT scans.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/10_covid_diagnosis/";
+            },},{id: "projects-contradiction-detection-in-english-using-llms",
+          title: 'Contradiction Detection in English using LLMs',
+          description: "A research project using RAG and OpenAI to find conflicting statements in text for a future publication.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/1_contradiction_detection/";
             },},{id: "projects-ai-powered-sign-language-amp-assistive-technology",
           title: 'AI-Powered Sign Language &amp;amp; Assistive Technology',
           description: "A real-time sign language translation and speech therapy platform.",
@@ -442,11 +447,6 @@ ninja.data = [{
           description: "Using GANs to generate polymorphic attacks for testing and improving the robustness of an IDS.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_ids_attacks/";
-            },},{id: "projects-contradiction-detection-in-english-using-llms",
-          title: 'Contradiction Detection in English using LLMs',
-          description: "A research project using RAG and OpenAI to find conflicting statements in text for a future publication.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/contradiction_detection/";
             },},{
         id: 'social-email',
         title: 'email',
