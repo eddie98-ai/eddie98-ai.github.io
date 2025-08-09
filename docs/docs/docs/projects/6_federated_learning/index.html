@@ -354,7 +354,21 @@
   </header>
 
   <article>
-    <p>Traditional centralized machine learning for intrusion detection faces significant privacy risks and processing bottlenecks. This project solves these issues by using <strong>Federated Learning (FL)</strong>, a technique that enables collaborative model training on decentralized data without ever exposing the raw data itself. The project explored three distinct FL algorithms: Isolated-FL, Intra-FL, and Intra-Personalized-FL.</p>
+    <p>Traditional centralized machine learning for intrusion detection faces significant privacy risks and processing demands, making it inefficient for large-scale networks. This project solves these issues by using <strong>Federated Learning (FL)</strong>, a technique that enables collaborative model training on decentralized data without ever exposing the raw data itself.</p>
+
+<p>The system architecture was evaluated on three datasets from the <strong>Canadian Institute for Cybersecurity (CIC)</strong>, and this project proposed and analyzed three distinct FL algorithms: <strong>Isolated-FL</strong>, <strong>Intra-FL</strong>, and <strong>Intra-Personalized-FL</strong>.</p>
+
+<hr>
+
+<h3 id="1-the-intra-federated-learning-architecture">1. The Intra-Federated Learning Architecture</h3>
+
+<p>The core of the system is a <strong>Master-Slave architecture</strong> that executes the FL training process. The goal is to build a robust, global Deep Neural Network (DNN) by aggregating knowledge from multiple clients (slaves) without centralizing their sensitive data. The entire process is visually represented by the flowchart and system diagram below.</p>
+
+<div class="row mt-4">
+    <div class="col-sm-8">
+        
+
+
 
 <figure>
   <picture>
@@ -364,58 +378,123 @@
       https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
     -->
     
-    <img src="/assets/img/federated_learning_architecture.png" width="100%" height="auto" alt="Diagram showing the master-slave architecture of the Federated Learning system." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/fl_master_model_diagram.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Diagram showing the detailed FL system architecture." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
   </picture>
 
   
-    <figcaption class="caption">The FL architecture: A central Master node coordinates training, while multiple Slave nodes train locally on their private datasets.</figcaption>
+    <figcaption class="caption">System architecture for building the Master Model through aggregation.</figcaption>
   
 </figure>
 
-<h3 id="1-the-intra-federated-learning-algorithm">1. The Intra-Federated Learning Algorithm</h3>
-<p>The core of the system is a Master-Slave architecture that executes the FL process over multiple epochs.</p>
-<ul>
-  <li>
-<strong>Master Node:</strong> Initializes the global model and distributes its weights to all slave nodes. After each training round, it aggregates the updated weights from the slaves to create an improved global model.</li>
-  <li>
-<strong>Slave Nodes:</strong> Each slave holds its own private dataset. It receives the global model weights, performs one round of training locally on its data, and sends only the updated weights (not the data) back to the Master.</li>
-</ul>
-
-<p>This process repeats, allowing the global model to learn from the collective knowledge of all slaves without compromising data privacy.</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># Pseudocode for the Federated Learning Process
-</span>
-<span class="c1"># --- Master Node Execution ---
-</span><span class="n">FUNCTION</span> <span class="nc">Master_Execute</span><span class="p">(</span><span class="n">slaves</span><span class="p">,</span> <span class="n">epochs</span><span class="p">):</span>
-    <span class="n">global_model</span> <span class="o">=</span> <span class="nf">initialize_model</span><span class="p">()</span>
-    <span class="n">FOR</span> <span class="n">i</span> <span class="n">FROM</span> <span class="mi">1</span> <span class="n">TO</span> <span class="n">epochs</span><span class="p">:</span>
-        <span class="c1"># Distribute current model weights to all slaves
-</span>        <span class="nf">broadcast_weights</span><span class="p">(</span><span class="n">global_model</span><span class="p">.</span><span class="n">weights</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="n">slaves</span><span class="p">)</span>
+    </div>
+    <div class="col-sm-4">
         
-        <span class="c1"># Wait to receive updated weights from all slaves
-</span>        <span class="n">updated_weights_list</span> <span class="o">=</span> <span class="nf">receive_from_all</span><span class="p">(</span><span class="n">slaves</span><span class="p">)</span>
-        
-        <span class="c1"># Aggregate the updates to improve the global model
-</span>        <span class="n">new_weights</span> <span class="o">=</span> <span class="nf">mean_aggregate</span><span class="p">(</span><span class="n">updated_weights_list</span><span class="p">)</span>
-        <span class="n">global_model</span><span class="p">.</span><span class="nf">set_weights</span><span class="p">(</span><span class="n">new_weights</span><span class="p">)</span>
-        
-    <span class="n">RETURN</span> <span class="n">global_model</span>
 
-<span class="c1"># --- Slave Node Execution ---
-</span><span class="n">FUNCTION</span> <span class="nc">Slave_Execute</span><span class="p">(</span><span class="n">local_data</span><span class="p">):</span>
-    <span class="c1"># Receive global model weights from Master
-</span>    <span class="n">model_weights</span> <span class="o">=</span> <span class="nf">receive_from_master</span><span class="p">()</span>
-    <span class="n">local_model</span> <span class="o">=</span> <span class="nf">build_model</span><span class="p">()</span>
-    <span class="n">local_model</span><span class="p">.</span><span class="nf">set_weights</span><span class="p">(</span><span class="n">model_weights</span><span class="p">)</span>
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
     
-    <span class="c1"># Train for one round on local, private data
-</span>    <span class="n">local_model</span><span class="p">.</span><span class="nf">train</span><span class="p">(</span><span class="n">local_data</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    
-    <span class="c1"># Send only the updated weights back to the Master
-</span>    <span class="nf">send_weights_to_master</span><span class="p">(</span><span class="n">local_model</span><span class="p">.</span><span class="n">weights</span><span class="p">)</span></code></pre></figure>
+    <img src="/assets/img/fl_intra_federated_flowchart.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Flowchart of the Intra-Federated Learning algorithm." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
 
-<h3 id="2-threshold-based-classification">2. Threshold-Based Classification</h3>
-<p>The final, aggregated Deep Neural Network (DNN) produces an output score for incoming network traffic. This score is compared against a tunable threshold (e.g., 0.6) to classify the activity. A higher threshold prioritizes <strong>precision</strong> (fewer false positives), while a lower threshold prioritizes <strong>recall</strong> (detecting more potential attacks), allowing for flexible deployment based on security needs.</p>
+  
+    <figcaption class="caption">The Intra-FL algorithm flowchart.</figcaption>
+  
+</figure>
+
+    </div>
+</div>
+
+<p>The step-by-step process, outlined in the pseudocode, is as follows:</p>
+<ol>
+  <li>The <strong>Master</strong> node initializes a global DNN and distributes its weights.</li>
+  <li>Each <strong>Slave</strong> node trains the model on its local dataset for a single epoch, then saves and sends its updated weights (as an <code class="language-plaintext highlighter-rouge">H5</code> file) back to the Master.</li>
+  <li>The <strong>Master</strong> aggregates all incoming weights using a <strong>weighted averaging</strong> method to produce an improved global model.</li>
+  <li>This process is repeated for a predefined number of epochs.</li>
+</ol>
+
+<div style="background-color: #f8f_config.ymla; border: 1px solid #e9ecef; padding: 15px; border-radius: 5px; margin-top: 1.5rem; margin-bottom: 2rem;">
+  <h5 style="margin-top:0; border-bottom: 2px solid #dee2e6; padding-bottom: 10px; margin-bottom: 15px;">Algorithm Pseudocode</h5>
+
+<figure class="highlight"><pre><code class="language-plaintext" data-lang="plaintext">Require: S: Set of Slaves
+Require: E: Number of epochs
+
+Master Executes:
+1  Create Master Model
+2  Initialize w_0
+3  For i ← 0,1,... E:
+4    Send current Master Model weights to all slaves
+5    Receive new updated weights from all slaves
+6    Aggregate new weights using mean aggregation
+7    Set Aggregated weights to Master Model weights
+8  End For
+9  Return Master Model
+
+Distributed Slave Execution:
+10 Receive weights from Master
+11 Set weights to Local Model
+12 Perform one round of training on Local Model
+13 Send new weights to Master</code></pre></figure>
+
+</div>
+
+<hr>
+
+<h3 id="2-threshold-based-classification-and-results">2. Threshold-Based Classification and Results</h3>
+
+<p>The final, aggregated DNN produces an output score for incoming network traffic. This score is compared against a tunable <strong>decision threshold</strong> to classify the activity as either an attack or benign. The threshold’s value directly impacts the trade-off between Precision and Recall, as illustrated in the performance chart.</p>
+
+<div class="row mt-4">
+    <div class="col-sm-7">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/fl_threshold_chart.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Chart showing Precision, Recall, and F1-Score at different thresholds." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+    <figcaption class="caption">Evaluation metrics showing the relationship between the decision threshold and model performance.</figcaption>
+  
+</figure>
+
+    </div>
+    <div class="col-sm-5">
+      <p style="margin-top: 1rem;">The table below shows the model's performance at various thresholds. Based on these results, a threshold of **0.6** was selected as the optimal balance, achieving a high F1-Score of 0.90 with 95% precision and 85% recall.</p>
+      
+      <div class="table-responsive">
+
+| Threshold | Precision | Recall | F1-Score Avg |
+|:---------:|:---------:|:------:|:------------:|
+|    0.1    |   0.91    |  0.70  |     0.88     |
+|    0.2    |   0.92    |  0.74  |     0.90     |
+|    0.3    |   0.92    |  0.76  |     0.89     |
+|    0.4    |   0.94    |  0.81  |     0.90     |
+|    0.5    |   0.94    |  0.81  |     0.90     |
+|  **0.6**  | **0.95**  |**0.85**|   **0.90**   |
+|    0.7    |   0.97    |  0.93  |     0.87     |
+|    0.8    |   0.98    |  0.95  |     0.87     |
+|    0.9    |   0.98    |  0.96  |     0.85     |
+
+      </div>
+    </div>
+</div>
+
+<p><br></p>
 
 <hr>
 <h3 id="technical-summary">Technical Summary</h3>
@@ -423,7 +502,9 @@
   <li>
 <strong>Key Concepts:</strong> Federated Learning, Distributed Systems, Privacy-Preserving ML</li>
   <li>
-<strong>Algorithm:</strong> Weighted Mean Aggregation</li>
+<strong>Datasets:</strong> Canadian Institute for Cybersecurity (CIC) Datasets</li>
+  <li>
+<strong>Algorithm:</strong> Intra-Federated Learning with Weighted Mean Aggregation</li>
   <li>
 <strong>Model:</strong> Deep Neural Network (DNN)</li>
 </ul>
@@ -451,7 +532,7 @@
   Debow. 
   
   
-    Last updated: August 08, 2025.
+    Last updated: August 09, 2025.
   
 
     </div>

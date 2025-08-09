@@ -397,9 +397,9 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "projects-covid-19-diagnosis-with-deep-learning-from-ct-scans",
-          title: 'COVID-19 Diagnosis with Deep Learning from CT Scans',
-          description: "A novel CNN architecture, AdjCNet, for classifying COVID-19, CAP, and Normal cases from CT scans.",
+            },},{id: "projects-",
+          title: '',
+          description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/10_covid_diagnosis/";
             },},{id: "projects-contradiction-detection-in-english-using-llms",
@@ -424,7 +424,7 @@ ninja.data = [{
               window.location.href = "/projects/4_movie_recommender/";
             },},{id: "projects-on-prem-hosting-amp-ci-cd-infrastructure",
           title: 'On-Prem Hosting &amp;amp; CI/CD Infrastructure',
-          description: "Deployed a self-hosted GitLab and Jenkins platform for robust, automated workflows.",
+          description: "Architected and deployed a self-hosted GitLab and Jenkins platform for robust, automated software delivery.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/5_on_prem_hosting/";
             },},{id: "projects-distributed-deep-learning-for-anomaly-detection-via-federated-learning",
@@ -432,9 +432,9 @@ ninja.data = [{
           description: "A privacy-preserving intrusion detection system using Federated Learning to train models on decentralized data.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/6_federated_learning/";
-            },},{id: "projects-tor-network-detection-via-ml",
-          title: 'TOR Network Detection via ML',
-          description: "Built machine learning classifiers to identify encrypted TOR network traffic.",
+            },},{id: "projects-tor-network-detection-via-machine-learning",
+          title: 'TOR Network Detection via Machine Learning',
+          description: "Building and evaluating machine learning classifiers to identify encrypted TOR network traffic from raw packet data.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/7_tor_network/";
             },},{id: "projects-predicting-and-forecasting-water-quality",
@@ -444,7 +444,7 @@ ninja.data = [{
               window.location.href = "/projects/8_water_quality/";
             },},{id: "projects-launching-and-thwarting-attacks-on-ai-based-intrusion-detection-systems",
           title: 'Launching and Thwarting Attacks on AI-based Intrusion Detection Systems',
-          description: "Using GANs to generate polymorphic attacks for testing and improving the robustness of an IDS.",
+          description: "Using GANs and SHAP to generate polymorphic attacks for testing and improving the robustness of an IDS.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_ids_attacks/";
             },},{

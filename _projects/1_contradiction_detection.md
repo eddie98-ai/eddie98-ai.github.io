@@ -4,7 +4,7 @@ title: Contradiction Detection in English using LLMs
 description: A research project using RAG and OpenAI to find conflicting statements in text for a future publication.
 img: assets/img/contradiction_detection.png
 importance: 1
-category: AI & NLP
+category: Intelligent Systems & User Experience
 ---
 
 <div class="alert alert-info" role="alert">

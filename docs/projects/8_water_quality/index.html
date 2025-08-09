@@ -390,14 +390,33 @@
     <div class="col-sm-4">
       <p style="margin-top: 1rem;">A key goal was to maintain accuracy with minimal testing. The table below shows the model's low error rates when predicting WQI even in the absence of certain tests.</p>
       <div class="table-responsive">
-
-| Dataset (Test Omitted) | testing RMSE | testing MSE |
-|:-----------------------|:------------:|:-----------:|
-| Without total coliform   |    0.027     |   0.0008    |
-| Without faecal coliform  |    0.068     |   0.0046    |
-| Without dissolved oxygen |    0.038     |   0.0014    |
-
-      </div>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Dataset (Test Omitted)</th>
+      <th style="text-align: center">testing RMSE</th>
+      <th style="text-align: center">testing MSE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Without total coliform</td>
+      <td style="text-align: center">0.027</td>
+      <td style="text-align: center">0.0008</td>
+    </tr>
+    <tr>
+      <td>Without faecal coliform</td>
+      <td style="text-align: center">0.068</td>
+      <td style="text-align: center">0.0046</td>
+    </tr>
+    <tr>
+      <td>Without dissolved oxygen</td>
+      <td style="text-align: center">0.038</td>
+      <td style="text-align: center">0.0014</td>
+    </tr>
+  </tbody>
+</table>
+</div>
     </div>
 </div>
 

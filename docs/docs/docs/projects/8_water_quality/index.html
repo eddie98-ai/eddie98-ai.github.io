@@ -354,7 +354,21 @@
   </header>
 
   <article>
-    <p>This project addresses the critical challenge of water pollution by developing a system to monitor and forecast water quality. The core of the project is a <strong>4-stacked LSTM model</strong> designed to predict the Water Quality Index (WQI) based on various environmental factors, providing an early warning system for contamination.</p>
+    <p>This project addresses the critical challenge of obtaining clean water by developing a system to predict and forecast the Water Quality Index (WQI). The core of the project is a <strong>4-stacked LSTM model</strong> designed to accurately forecast water quality, even with incomplete data, providing a vital tool for environmental management.</p>
+
+<p>A full-stack <strong>Django</strong> admin dashboard was also developed to provide an interactive interface for monitoring water status and tracking key parameters in semi-real-time.</p>
+
+<hr>
+
+<h3 id="1-forecasting-with-stacked-lstms">1. Forecasting with Stacked LSTMs</h3>
+
+<p>The primary prediction engine is a deep learning model composed of four stacked Long Short-Term Memory (LSTM) layers. This architecture was chosen for its proven ability to capture complex temporal dependencies in time-series data. The model was trained to forecast future WQI values, achieving a leading <strong>RMSE of 0.013</strong> on filtered data.</p>
+
+<div class="row mt-4">
+    <div class="col-sm-8">
+        
+
+
 
 <figure>
   <picture>
@@ -364,38 +378,126 @@
       https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
     -->
     
-    <img src="/assets/img/water_quality_results.png" width="100%" height="auto" alt="Graph showing predicted vs real WQI values." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/wq_forecasting_chart.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Graph showing predicted vs real WQI values." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
   </picture>
 
   
-    <figcaption class="caption">Sample of forecasting results, showing the model's ability to track real WQI fluctuations.</figcaption>
+    <figcaption class="caption">The model's forecasting performance, showing the predicted WQI closely tracking the real WQI over time.</figcaption>
   
 </figure>
 
-<h3 id="1-data-processing-and-feature-engineering">1. Data Processing and Feature Engineering</h3>
-<p>The initial dataset contained multiple factors influencing water quality (pH, turbidity, dissolved oxygen, etc.). A key challenge was handling missing data points. This was addressed by applying <strong>K-NN imputation</strong> to fill gaps intelligently based on the nearest neighbors in the feature space. Further stability was achieved using an <strong>annual mean filter</strong> to smooth the time-series data.</p>
+    </div>
+    <div class="col-sm-4">
+      <p style="margin-top: 1rem;">A key goal was to maintain accuracy with minimal testing. The table below shows the model's low error rates when predicting WQI even in the absence of certain tests.</p>
+      <div class="table-responsive">
 
-<h3 id="2-forecasting-with-stacked-lstms">2. Forecasting with Stacked LSTMs</h3>
-<p>The primary prediction engine is a deep learning model composed of four stacked Long Short-Term Memory (LSTM) layers. This architecture was chosen for its proven ability to capture complex temporal dependencies in time-series data. The model was trained to forecast future WQI values, achieving a leading <strong>RMSE of 0.013</strong>.</p>
+| Dataset (Test Omitted) | testing RMSE | testing MSE |
+|:-----------------------|:------------:|:-----------:|
+| Without total coliform   |    0.027     |   0.0008    |
+| Without faecal coliform  |    0.068     |   0.0046    |
+| Without dissolved oxygen |    0.038     |   0.0014    |
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># High-level pseudocode for the forecasting pipeline
-</span>
-<span class="n">FUNCTION</span> <span class="nc">Forecast_WQI</span><span class="p">(</span><span class="n">raw_data</span><span class="p">):</span>
-    <span class="c1"># 1. Prepare data for the time-series model
-</span>    <span class="n">processed_data</span> <span class="o">=</span> <span class="nc">K_NN_Impute</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
-    <span class="n">smoothed_data</span> <span class="o">=</span> <span class="nc">Annual_Mean_Filter</span><span class="p">(</span><span class="n">processed_data</span><span class="p">)</span>
-    
-    <span class="c1"># 2. Build and train the LSTM model
-</span>    <span class="n">model</span> <span class="o">=</span> <span class="nf">build_stacked_lstm_model</span><span class="p">(</span><span class="n">layers</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">model</span><span class="p">.</span><span class="nf">train</span><span class="p">(</span><span class="n">smoothed_data</span><span class="p">)</span>
-    
-    <span class="c1"># 3. Generate future predictions
-</span>    <span class="n">future_wqi</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="nf">predict</span><span class="p">(</span><span class="n">last_known_data</span><span class="p">)</span>
-    
-    <span class="n">RETURN</span> <span class="n">future_wqi</span></code></pre></figure>
+      </div>
+    </div>
+</div>
 
-<h3 id="3-interactive-monitoring-dashboard">3. Interactive Monitoring Dashboard</h3>
-<p>To make the system practical, a full-stack admin dashboard was developed using <strong>Django</strong> and JavaScript. This interface allows users to monitor real-time water quality status, track key parameters through interactive charts, and view the model’s forecasts, providing a powerful tool for environmental management.</p>
+<hr>
+
+<h3 id="2-interactive-monitoring-dashboard">2. Interactive Monitoring Dashboard</h3>
+
+<p>To make the system practical, a full-stack admin dashboard was developed using <strong>Django</strong> and JavaScript. This interface provides a powerful tool for environmental management by allowing users to:</p>
+<ul>
+  <li>Monitor the current water quality status.</li>
+  <li>Track key parameters through interactive charts.</li>
+  <li>View the model’s real-time forecasts and historical performance.</li>
+</ul>
+
+<div class="row mt-3 mb-3">
+    <div class="col-sm-8">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/wq_dashboard_rect_1.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Rectangular screenshot of the Django dashboard." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+    <div class="col-sm-4">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/wq_dashboard_square_1.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Square screenshot of the Django dashboard." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+<div class="row mt-3 mb-3">
+    <div class="col-sm-8">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/wq_dashboard_rect_2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Second rectangular screenshot of the Django dashboard." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+    <div class="col-sm-4">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/wq_dashboard_square_2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Second square screenshot of the Django dashboard." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<p><br></p>
 
 <hr>
 <h3 id="technical-summary">Technical Summary</h3>
@@ -433,7 +535,7 @@
   Debow. 
   
   
-    Last updated: August 08, 2025.
+    Last updated: August 09, 2025.
   
 
     </div>

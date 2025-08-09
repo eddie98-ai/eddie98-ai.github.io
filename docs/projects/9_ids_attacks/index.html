@@ -22,7 +22,7 @@
   
 </title>
 <meta name="author" content="Ahmad  Debow">
-<meta name="description" content="Using GANs to generate polymorphic attacks for testing and improving the robustness of an IDS.">
+<meta name="description" content="Using GANs and SHAP to generate polymorphic attacks for testing and improving the robustness of an IDS.">
 
   <meta name="keywords" content="Ahmad Debow, AI, MLOps, DevOps, Machine Learning, Deep Learning, Generative Adversarial Networks, GANs, AWS, GCP, Cloud Computing, Python, Docker, GitLab, CI/CD, Computer Vision, NLP, Large Language Models, Biomedical AI, Intrusion Detection Systems">
 
@@ -36,14 +36,14 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Ahmad Debow (Edd) | Launching and Thwarting Attacks on AI-based Intrusion Detection Systems">
   <meta property="og:url" content="http://localhost:4000/projects/9_ids_attacks/">
-  <meta property="og:description" content="Using GANs to generate polymorphic attacks for testing and improving the robustness of an IDS.">
+  <meta property="og:description" content="Using GANs and SHAP to generate polymorphic attacks for testing and improving the robustness of an IDS.">
   
   <meta property="og:locale" content="en">
 
   <!-- Twitter card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Launching and Thwarting Attacks on AI-based Intrusion Detection Systems">
-  <meta name="twitter:description" content="Using GANs to generate polymorphic attacks for testing and improving the robustness of an IDS.">
+  <meta name="twitter:description" content="Using GANs and SHAP to generate polymorphic attacks for testing and improving the robustness of an IDS.">
   
   
 
@@ -350,11 +350,17 @@
 <div class="post">
   <header class="post-header">
     <h1 class="post-title">Launching and Thwarting Attacks on AI-based Intrusion Detection Systems</h1>
-    <p class="post-description">Using GANs to generate polymorphic attacks for testing and improving the robustness of an IDS.</p>
+    <p class="post-description">Using GANs and SHAP to generate polymorphic attacks for testing and improving the robustness of an IDS.</p>
   </header>
 
   <article>
-    <p>This project takes an offensive security approach to “think like an attacker.” It leverages <strong>Generative Adversarial Networks (GANs)</strong> to simulate advanced, polymorphic DDoS attacks, with the goal of exposing weaknesses in AI-based Intrusion Detection Systems (IDS) and developing methods to re-optimize them.</p>
+    <p>This project takes an offensive security approach to “think like an attacker.” It leverages <strong>Generative Adversarial Networks (GANs)</strong> to simulate advanced, polymorphic DDoS attacks, with the goal of exposing weaknesses in AI-based Intrusion Detection Systems (IDS) and developing methods to re-optimize them. The entire process, from data generation to testing, is managed via a full-stack <strong>Django</strong> dashboard.</p>
+
+<hr>
+
+<h3 id="1-understanding-polymorphic-attacks">1. Understanding Polymorphic Attacks</h3>
+
+<p>A polymorphic attack is an advanced cyber threat that constantly changes its identifiable features (like its code or data patterns) to evade detection. Unlike traditional attacks that have a fixed, recognizable signature, each new instance of a polymorphic attack looks different from the last, making it extremely difficult for signature-based or simple pattern-matching Intrusion Detection Systems to stop. This project uses GANs to artificially create this evolving, shape-shifting attack data to train a more robust IDS.</p>
 
 <figure>
   <picture>
@@ -364,55 +370,222 @@
       https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
     -->
     
-    <img src="/assets/img/ids_gan_results.png" width="100%" height="auto" alt="Bar chart showing the impact of GAN-based attacks on IDS accuracy." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/polymorphic_attack_explanation.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Diagram explaining a polymorphic attack." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
   </picture>
 
   
-    <figcaption class="caption">Results showing how injecting malicious features (5_attack) significantly reduces IDS accuracy, and how re-training improves it (5_enh).</figcaption>
+    <figcaption class="caption">Illustration of a polymorphic attack changing its features to bypass defenses.</figcaption>
   
 </figure>
 
-<h3 id="1-feature-selection-with-shap">1. Feature Selection with SHAP</h3>
-<p>The project began by analyzing the massive CIC-IDS2017 dataset (80GB). To create effective attacks, it was crucial to identify the most impactful network features. The <strong>SHAP (SHapley Additive exPlanations)</strong> algorithm was utilized to analyze the feature importance, pinpointing the most distinguishing characteristics of DDoS attacks versus benign traffic.</p>
+<hr>
 
-<h3 id="2-polymorphic-attack-generation-with-wgans">2. Polymorphic Attack Generation with WGANs</h3>
-<p>A <strong>Wasserstein Generative Adversarial Network (WGAN)</strong> was trained to generate novel, realistic attack data.</p>
+<h3 id="2-data-preprocessing-and-explainable-feature-selection">2. Data Preprocessing and Explainable Feature Selection</h3>
+
+<p>The project began by analyzing the massive <strong>CIC-IDS2017 dataset (80GB)</strong>. To create effective attacks, it was crucial to first identify the most impactful network features.</p>
+
+<p>The <strong>SHAP (SHapley Additive exPlanations)</strong> algorithm was utilized to analyze feature importance, providing a clear, explainable ranking of the most distinguishing characteristics of DDoS attacks versus benign traffic. This allowed for a targeted approach to attack generation.</p>
+
+<div class="row mt-4">
+    <div class="col-sm-6">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/ids_shap_diagram.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Diagram of the SHAP feature selection process." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+    <figcaption class="caption">The iterative SHAP process for selecting the most impactful features.</figcaption>
+  
+</figure>
+
+    </div>
+    <div class="col-sm-6">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/ids_shap_barchart.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Bar chart showing the SHAP values for top DDoS features." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+    <figcaption class="caption">SHAP results identifying the most significant features for DDoS attacks.</figcaption>
+  
+</figure>
+
+    </div>
+</div>
+
+<hr>
+
+<h3 id="3-polymorphic-attack-generation-with-wgans">3. Polymorphic Attack Generation with WGANs</h3>
+
+<p>A <strong>Wasserstein Generative Adversarial Network (WGAN)</strong> was trained to generate novel, realistic attack data based on the features selected by SHAP. The WGAN architecture consists of two competing models:</p>
 <ul>
-  <li>The <strong>Generator</strong> learns to create attack samples from a noise vector, attempting to mimic the statistical properties of real DDoS attacks identified by SHAP.</li>
-  <li>The <strong>Discriminator</strong> (Critic) learns to differentiate between real and generated attacks.
-Through this iterative, adversarial process, the Generator becomes proficient at creating evolving, polymorphic attack patterns that can evade simple detection rules.</li>
+  <li>The <strong>Generator</strong> learns to create attack samples from a noise vector, attempting to mimic the statistical properties of real DDoS attacks.</li>
+  <li>The <strong>Discriminator</strong> (or Critic) learns to differentiate between real and generated attacks, providing feedback to the Generator.</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># Pseudocode for the Adversarial Attack Generation loop
-</span>
-<span class="n">FUNCTION</span> <span class="nc">Train_WGAN</span><span class="p">(</span><span class="n">real_attack_data</span><span class="p">):</span>
-    <span class="n">generator</span> <span class="o">=</span> <span class="nf">initialize_generator</span><span class="p">()</span>
-    <span class="n">discriminator</span> <span class="o">=</span> <span class="nf">initialize_discriminator</span><span class="p">()</span>
-    
-    <span class="n">FOR</span> <span class="n">EACH</span> <span class="n">training</span> <span class="n">iteration</span><span class="p">:</span>
-        <span class="c1"># Train the Discriminator
-</span>        <span class="n">real_samples</span> <span class="o">=</span> <span class="nf">sample</span><span class="p">(</span><span class="n">real_attack_data</span><span class="p">)</span>
-        <span class="n">generated_samples</span> <span class="o">=</span> <span class="n">generator</span><span class="p">.</span><span class="nf">predict</span><span class="p">(</span><span class="n">noise_vector</span><span class="p">)</span>
-        <span class="n">d_loss</span> <span class="o">=</span> <span class="n">discriminator</span><span class="p">.</span><span class="nf">train_on_batch</span><span class="p">(</span><span class="n">real_samples</span><span class="p">,</span> <span class="n">generated_samples</span><span class="p">)</span>
-        
-        <span class="c1"># Train the Generator
-</span>        <span class="n">g_loss</span> <span class="o">=</span> <span class="n">generator</span><span class="p">.</span><span class="nf">train_on_batch</span><span class="p">(</span><span class="n">noise_vector</span><span class="p">)</span> <span class="c1"># Goal is to fool the discriminator
-</span>        
-    <span class="n">RETURN</span> <span class="n">generator</span></code></pre></figure>
+<p>Through this iterative, adversarial process, the Generator becomes proficient at creating evolving, polymorphic attack patterns.</p>
 
-<h3 id="3-attack-simulation--ids-dashboard">3. Attack Simulation &amp; IDS Dashboard</h3>
-<p>A full administrative dashboard was developed to operationalize the research. The dashboard allows a security analyst to:</p>
+<div style="background-color: #f8f9fa; border: 1px solid #e9ecef; padding: 20px; border-radius: 5px; margin-top: 1.5rem; margin-bottom: 2rem;">
+  <h5 style="margin-top:0; border-bottom: 2px solid #dee2e6; padding-bottom: 10px; margin-bottom: 15px;">Adversarial Attack Generation Algorithm</h5>
+  
+<figure class="highlight"><pre><code class="language-plaintext" data-lang="plaintext">Algorithm 2: Adversarial Attack Generation
+-------------------------------------------------------------------------------
+Input:
+    Generator - noise vector N, DDoS Attack Data
+    Critic/Discriminator - attack, and benign data
+Output:
+    Trained Generator
+    Trained Critic / Discriminator
+
+loop:
+    Generate attack
+    Update loss function "G_loss"
+    
+    while &lt;Discriminator iterations&gt; do
+        Update loss function "D_loss"
+    
+    Send feedback to Generator and to Discriminator
+end loop
+  </code></pre></figure>
+
+</div>
+
+<hr>
+
+<h3 id="4-attack-simulation-and-ids-enhancement">4. Attack Simulation and IDS Enhancement</h3>
+
+<p>We launched attacks against a baseline AI-based IDS by injecting the 5 and 10 most malicious features identified by SHAP. As the results show, this significantly reduced the detection accuracy.</p>
+
+<p>We then improved the AI-based IDS by re-training it on a dataset augmented with our generated polymorphic attacks. This enhancement significantly increased its ability to detect these advanced threats.</p>
+
+<div class="row mt-4">
+    <div class="col-sm-6">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/ids_results_chart_1.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Bar chart showing the impact of GAN-based attacks on IDS accuracy." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+    <figcaption class="caption">Injecting 5 and 10 malicious features causes a noticeable drop in detection rate across multiple ML models.</figcaption>
+  
+</figure>
+
+    </div>
+    <div class="col-sm-6">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/ids_results_chart_2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Bar chart showing IDS performance before and after enhancement." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+    <figcaption class="caption">Model accuracy before enhancement (5_attack) and after enhancement (5_enh) using 5 malicious features.</figcaption>
+  
+</figure>
+
+    </div>
+</div>
+
+<hr>
+
+<h3 id="5-interactive-admin-dashboard">5. Interactive Admin Dashboard</h3>
+
+<p>To make the system practical, a full administrative dashboard was developed using <strong>Django</strong>. This interface allows a security analyst to:</p>
 <ul>
   <li>Generate new malicious datasets with a customizable number of attack features.</li>
   <li>Test both a standard IDS and an enhanced, re-trained IDS against the generated attacks.</li>
   <li>Visualize traffic flow characteristics and compare IDS performance side-by-side.</li>
 </ul>
 
+<div class="row mt-3 mb-3">
+    <div class="col-sm-7">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/ids_dashboard_1.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Screenshot of the adversarial data generation interface." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+    <div class="col-sm-5">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/ids_dashboard_2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Screenshot of the IDS testing interface." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<p><br></p>
+
 <hr>
 <h3 id="technical-summary">Technical Summary</h3>
 <ul>
   <li>
-<strong>Key Concepts:</strong> Generative Adversarial Networks (WGAN), Explainable AI (SHAP)</li>
+<strong>Key Concepts:</strong> Generative Adversarial Networks (WGAN), Explainable AI (SHAP), Offensive Security, Polymorphic Attacks</li>
   <li>
 <strong>Dataset:</strong> CIC-IDS2017</li>
   <li>

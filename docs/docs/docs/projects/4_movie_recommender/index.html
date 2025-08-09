@@ -354,7 +354,15 @@
   </header>
 
   <article>
-    <p>Many recommendation systems fail with new users (<strong>cold start problem</strong>) or users with unique tastes (<strong>gray sheep problem</strong>). This project tackles these challenges with a novel hybrid framework that uses <strong>Reinforcement Learning (RL)</strong> to create a smarter, more transparent, and adaptable recommendation engine.</p>
+    <p>Traditional movie recommendation systems often fail with new users (<strong>cold start problem</strong>) or users with unique tastes (<strong>gray sheep problem</strong>). This project addresses these limitations by proposing a novel hybrid framework that integrates <strong>Biclustering</strong> with <strong>Q-Learning-based Reinforcement Learning (RL)</strong> to enhance accuracy, adaptability, and interpretability.</p>
+
+<p>To demonstrate its real-world applicability, the algorithm was implemented in a <strong>fully functional web-based platform</strong>, allowing users to receive and understand their personalized movie suggestions.</p>
+
+<div class="row mt-3 mb-3">
+    <div class="col-sm-6">
+        
+
+
 
 <figure>
   <picture>
@@ -364,64 +372,200 @@
       https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
     -->
     
-    <img src="/assets/img/rl_website_pages.png" width="100%" height="auto" alt="Screenshots of the web-based platform." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/rl_recommendation_output.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Screenshot of the recommendation output." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
   </picture>
 
   
-    <figcaption class="caption">A fully functional web platform was developed to demonstrate the algorithm's real-world applicability, allowing users to receive personalized movie suggestions.</figcaption>
+    <figcaption class="caption">The web platform's main recommendation interface.</figcaption>
   
 </figure>
 
+    </div>
+    <div class="col-sm-6">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/rl_recommendation_explanation.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Screenshot of the recommendation explanation." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+    <figcaption class="caption">The system provides clear explanations for its suggestions.</figcaption>
+  
+</figure>
+
+    </div>
+</div>
+
+<hr>
+
 <h3 id="1-hybrid-framework-biclustering--q-learning">1. Hybrid Framework: Biclustering + Q-Learning</h3>
-<p>The system’s intelligence comes from a two-stage process:</p>
+
+<p>The system’s intelligence comes from a two-stage process designed to handle sparse data and learn optimal policies over time:</p>
+
 <ol>
   <li>
-<strong>Biclustering:</strong> First, the MovieLens 100K dataset is analyzed to group both users and movies simultaneously based on rating patterns. This creates a structured grid of user/movie clusters, revealing hidden relationships in the sparse data.</li>
+    <p><strong>Biclustering for Structure Discovery:</strong> The system first applies biclustering to the MovieLens 100K dataset. Unlike traditional clustering, this technique groups both users and movies simultaneously based on their rating patterns. This effectively captures hidden relationships in the sparse data and organizes it into a structured grid network of user/movie clusters.</p>
+  </li>
   <li>
-<strong>Q-Learning:</strong> This grid of clusters is then treated as the environment for a Reinforcement Learning agent. The agent’s goal is to learn an optimal policy for navigating this grid. Instead of recommending a single movie, the agent learns to recommend an entire <em>bicluster</em> of movies, which is a much more effective strategy for new users.</li>
+    <p><strong>Q-Learning for Policy Optimization:</strong> This structured grid is then used as the environment for a Reinforcement Learning agent. The agent’s goal is to learn an optimal recommendation policy by navigating this grid. Instead of recommending a single movie, the agent learns to recommend an entire <em>bicluster</em> of movies, a much more effective strategy for handling cold-start users. The agent’s learning is guided by <strong>Jaccard similarity</strong>, which serves as the reward signal for making relevant recommendations.</p>
+  </li>
 </ol>
 
-<h3 id="2-the-q-learning-algorithm">2. The Q-Learning Algorithm</h3>
-<p>The agent learns through trial and error using the Q-Learning algorithm. It continuously explores the environment and updates its knowledge based on feedback.</p>
-<ul>
-  <li>
-<strong>State:</strong> The agent’s current position in the grid of movie biclusters.</li>
-  <li>
-<strong>Action:</strong> Choosing which adjacent bicluster to recommend next.</li>
-  <li>
-<strong>Reward:</strong> Positive feedback based on the relevance of the recommended movies (e.g., using Jaccard similarity).</li>
-  <li>
-<strong>Policy:</strong> The agent uses an <strong>ɛ-greedy policy</strong>, where it mostly chooses the best-known action but sometimes explores new paths to discover better recommendation strategies over time.</li>
-</ul>
+<hr>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># Pseudocode for the Q-Learning training loop
-</span>
-<span class="n">FUNCTION</span> <span class="nc">Train_Q_Learning_Agent</span><span class="p">(</span><span class="n">trials</span><span class="p">):</span>
-    <span class="c1"># Q_table stores the learned value of taking an action in a state
-</span>    <span class="n">Q_table</span> <span class="o">=</span> <span class="nf">initialize_with_zeros</span><span class="p">()</span>
+<h3 id="2-the-q-learning-algorithm-in-depth">2. The Q-Learning Algorithm in Depth</h3>
+
+<p>The agent learns through trial and error using the Q-Learning algorithm, which continuously refines the agent’s “Q-table” (a memory of the value of taking a certain action in a certain state). The process is guided by an <strong>ε-greedy policy</strong>, which balances exploiting known good recommendations with exploring new ones to ensure continuous improvement.</p>
+
+<div style="background-color: #f8f9fa; border: 1px solid #e9ecef; padding: 20px; border-radius: 5px; margin-top: 1rem; margin-bottom: 2rem;">
+  <h5 style="margin-top:0; border-bottom: 2px solid #dee2e6; padding-bottom: 10px; margin-bottom: 15px;">Q-Learning Pseudocode</h5>
+  <p>The core logic of the agent's learning process is captured by the following algorithm:</p>
+  
+  
+<figure class="highlight"><pre><code class="language-plaintext" data-lang="plaintext">Algorithm 2 Pseudocode for Q-Learning
+-------------------------------------------------------------------------------
+Require: State Space S, Action Space A, Transition Function T, Agent
+Ensure:  Policy π
+
+1:  for i = 1 to trials do
+2:      Select a random state s
+3:      while step &lt; max steps per episode or No game over do
+4:          a = ξ-greedy with action
+5:          Execute action a
+6:          s' = T(s, a)
+7:          Q_new = (1 - α) * Q_old + α * (r + γ * max Q_value_in_s')
+8:          if No new movie found or Agent moves off the grid then
+9:              game over = True
+10:         else
+11:             s = s'
+12:         end if
+13:     end while
+14: end for
+  </code></pre></figure>
+
+
+  <h5 style="margin-top:20px; border-bottom: 2px solid #dee2e6; padding-bottom: 10px; margin-bottom: 15px;">How It Works</h5>
+  <ul>
+      <li>
+<strong>State:</strong> The agent's current position in the grid of movie biclusters.</li>
+      <li>
+<strong>Action:</strong> Choosing which adjacent bicluster to recommend next.</li>
+      <li>
+<strong>Reward (r):</strong> A score based on the relevance of the recommended movies, calculated using Jaccard similarity to handle sparse data effectively.</li>
+      <li>
+<strong>Policy (π):</strong> The agent's strategy, which is continuously improved by updating the Q-table based on the rewards it receives from the environment.</li>
+  </ul>
+</div>
+
+<hr>
+
+<h3 id="3-results-and-evaluation">3. Results and Evaluation</h3>
+
+<p>Evaluation results show that the framework outperforms traditional recommendation models, particularly in handling cold start and gray sheep users, while maintaining a high level of recommendation accuracy and interpretability. The agent successfully learns to maximize its rewards over time, indicating an effective recommendation policy.</p>
+
+<div class="row mt-4">
+    <div class="col-sm-12">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
     
-    <span class="n">FOR</span> <span class="n">i</span> <span class="n">FROM</span> <span class="mi">1</span> <span class="n">TO</span> <span class="n">trials</span><span class="p">:</span>
-        <span class="n">state</span> <span class="o">=</span> <span class="nf">select_random_state</span><span class="p">()</span> <span class="c1"># Start at a random movie cluster
-</span>        
-        <span class="n">WHILE</span> <span class="n">episode_is_not_over</span><span class="p">:</span>
-            <span class="c1"># Choose action using an epsilon-greedy policy
-</span>            <span class="n">IF</span> <span class="n">random_number</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
-                <span class="n">action</span> <span class="o">=</span> <span class="nf">choose_random_action</span><span class="p">()</span> <span class="c1"># Explore
-</span>            <span class="n">ELSE</span><span class="p">:</span>
-                <span class="n">action</span> <span class="o">=</span> <span class="nf">choose_best_action_from_q_table</span><span class="p">(</span><span class="n">state</span><span class="p">)</span> <span class="c1"># Exploit
-</span>            
-            <span class="c1"># Execute action and get the reward and new state
-</span>            <span class="n">new_state</span><span class="p">,</span> <span class="n">reward</span> <span class="o">=</span> <span class="n">environment</span><span class="p">.</span><span class="nf">get_next_state_and_reward</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span>
-            
-            <span class="c1"># Update the Q-table with the new knowledge (Bellman equation)
-</span>            <span class="n">old_q_value</span> <span class="o">=</span> <span class="n">Q_table</span><span class="p">[</span><span class="n">state</span><span class="p">,</span> <span class="n">action</span><span class="p">]</span>
-            <span class="n">future_optimal_value</span> <span class="o">=</span> <span class="nf">max</span><span class="p">(</span><span class="n">Q_table</span><span class="p">[</span><span class="n">new_state</span><span class="p">])</span>
-            <span class="n">new_q_value</span> <span class="o">=</span> <span class="n">old_q_value</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="p">(</span><span class="n">reward</span> <span class="o">+</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">future_optimal_value</span> <span class="o">-</span> <span class="n">old_q_value</span><span class="p">)</span>
-            <span class="n">Q_table</span><span class="p">[</span><span class="n">state</span><span class="p">,</span> <span class="n">action</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_q_value</span>
-            
-            <span class="n">state</span> <span class="o">=</span> <span class="n">new_state</span>
-            
-    <span class="n">RETURN</span> <span class="nf">learned_policy_from</span><span class="p">(</span><span class="n">Q_table</span><span class="p">)</span></code></pre></figure>
+    <img src="/assets/img/rl_rewards_chart.png" width="100%" height="auto" alt="Chart showing rewards per episode during Q-Learning." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+    <figcaption class="caption">The agent's total reward per episode increases over time, showing a successful learning process.</figcaption>
+  
+</figure>
+
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-sm-4">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/rl_accuracy_chart.png" width="100%" height="auto" alt="Distribution of accuracy scores." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+    <figcaption class="caption">Distribution of Accuracy</figcaption>
+  
+</figure>
+
+    </div>
+    <div class="col-sm-4">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/rl_recall_chart.png" width="100%" height="auto" alt="Distribution of recall scores." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+    <figcaption class="caption">Distribution of Recall</figcaption>
+  
+</figure>
+
+    </div>
+    <div class="col-sm-4">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/rl_precision_chart.png" width="100%" height="auto" alt="Distribution of precision scores." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+    <figcaption class="caption">Distribution of Precision</figcaption>
+  
+</figure>
+
+    </div>
+</div>
+
+<p><br></p>
 
 <hr>
 <h3 id="technical-summary">Technical Summary</h3>
@@ -433,7 +577,8 @@
   <li>
 <strong>Dataset:</strong> MovieLens 100K</li>
   <li>
-<strong>Metrics:</strong> Jaccard Similarity</li>
+<strong>Metrics:</strong> Jaccard Similarity, Precision, Recall, Accuracy<img src="image.png" alt="alt text">
+</li>
 </ul>
 
   </article>
@@ -459,7 +604,7 @@
   Debow. 
   
   
-    Last updated: August 08, 2025.
+    Last updated: August 09, 2025.
   
 
     </div>

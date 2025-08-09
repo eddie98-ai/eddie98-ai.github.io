@@ -22,7 +22,7 @@
   
 </title>
 <meta name="author" content="Ahmad  Debow">
-<meta name="description" content="Deployed a self-hosted GitLab and Jenkins platform for robust, automated workflows.">
+<meta name="description" content="Architected and deployed a self-hosted GitLab and Jenkins platform for robust, automated software delivery.">
 
   <meta name="keywords" content="Ahmad Debow, AI, MLOps, DevOps, Machine Learning, Deep Learning, Generative Adversarial Networks, GANs, AWS, GCP, Cloud Computing, Python, Docker, GitLab, CI/CD, Computer Vision, NLP, Large Language Models, Biomedical AI, Intrusion Detection Systems">
 
@@ -36,14 +36,14 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Ahmad Debow (Edd) | On-Prem Hosting &amp; CI/CD Infrastructure">
   <meta property="og:url" content="http://localhost:4000/projects/5_on_prem_hosting/">
-  <meta property="og:description" content="Deployed a self-hosted GitLab and Jenkins platform for robust, automated workflows.">
+  <meta property="og:description" content="Architected and deployed a self-hosted GitLab and Jenkins platform for robust, automated software delivery.">
   
   <meta property="og:locale" content="en">
 
   <!-- Twitter card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="On-Prem Hosting &amp; CI/CD Infrastructure">
-  <meta name="twitter:description" content="Deployed a self-hosted GitLab and Jenkins platform for robust, automated workflows.">
+  <meta name="twitter:description" content="Architected and deployed a self-hosted GitLab and Jenkins platform for robust, automated software delivery.">
   
   
 
@@ -350,13 +350,105 @@
 <div class="post">
   <header class="post-header">
     <h1 class="post-title">On-Prem Hosting &amp; CI/CD Infrastructure</h1>
-    <p class="post-description">Deployed a self-hosted GitLab and Jenkins platform for robust, automated workflows.</p>
+    <p class="post-description">Architected and deployed a self-hosted GitLab and Jenkins platform for robust, automated software delivery.</p>
   </header>
 
   <article>
-    <p>Configured and deployed a Linux-based, self-hosted <strong>GitLab</strong> and <strong>Jenkins</strong> CI/CD platform with static IPs and DNS setup.</p>
+    <p>While cloud-based CI/CD platforms are common, building an on-premises infrastructure provides complete control over security, data privacy, and the development toolchain. This project involved architecting and deploying a robust, self-hosted CI/CD platform from the ground up on a dedicated Linux server.</p>
 
-<p>This project involved automating builds, tests, and deployments for multi-repository backend/frontend systems, complete with robust, fine-grained access control.</p>
+<p>The goal was to create a reliable and automated system for building, testing, and deploying multi-repository backend and frontend applications, managed entirely in-house.</p>
+
+<hr>
+
+<h3 id="1-system-architecture">1. System Architecture</h3>
+
+<p>The platform is built around two core components: a <strong>GitLab</strong> instance for source code management and a <strong>Jenkins</strong> server for automation. The entire system is hosted on a Linux (Ubuntu) server configured with a static IP and DNS for stable, reliable access.</p>
+
+<hr>
+
+<h3 id="2-key-components">2. Key Components</h3>
+
+<ul>
+  <li>
+<strong>Self-Hosted GitLab Instance:</strong> Serves as the central hub for all source code. Its key responsibilities include:
+    <ul>
+      <li>
+<strong>Source Code Management (SCM):</strong> Hosting Git repositories for various backend and frontend services.</li>
+      <li>
+<strong>Access Control:</strong> Managing user and group permissions with fine-grained controls to protect critical branches like <code class="language-plaintext highlighter-rouge">main</code>.</li>
+      <li>
+<strong>Webhook Triggers:</strong> Automatically notifying the Jenkins server via webhooks whenever new code is pushed to a repository.</li>
+    </ul>
+  </li>
+  <li>
+<strong>Jenkins Automation Server:</strong> Acts as the workhorse of the CI/CD pipeline. Its roles include:
+    <ul>
+      <li>Listening for webhooks from GitLab to start new jobs.</li>
+      <li>Executing scripted pipelines (<code class="language-plaintext highlighter-rouge">Jenkinsfile</code>) to define build, test, and deployment stages.</li>
+      <li>Managing build artifacts and reporting the status of each pipeline run.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr>
+
+<h3 id="3-the-automated-cicd-pipeline">3. The Automated CI/CD Pipeline</h3>
+
+<p>A typical pipeline for a containerized application was configured with the following stages:</p>
+
+<div style="background-color: #f8f9fa; border: 1px solid #e9ecef; padding: 20px; border-radius: 5px; margin-top: 1.5rem; margin-bottom: 2rem;">
+  <h5 style="margin-top:0; border-bottom: 2px solid #dee2e6; padding-bottom: 10px; margin-bottom: 15px;">Pipeline Stages Pseudocode</h5>
+
+<figure class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">pipeline</span> <span class="o">{</span>
+    <span class="n">agent</span> <span class="n">any</span>
+    <span class="n">stages</span> <span class="o">{</span>
+        <span class="n">stage</span><span class="o">(</span><span class="s1">'Build'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">steps</span> <span class="o">{</span>
+                <span class="c1">// 1. Compile code, install dependencies</span>
+                <span class="n">sh</span> <span class="s1">'npm install'</span>
+                <span class="n">sh</span> <span class="s1">'npm run build'</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">stage</span><span class="o">(</span><span class="s1">'Test'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">steps</span> <span class="o">{</span>
+                <span class="c1">// 2. Run automated tests (unit, integration)</span>
+                <span class="n">sh</span> <span class="s1">'npm test'</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">stage</span><span class="o">(</span><span class="s1">'Package'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">steps</span> <span class="o">{</span>
+                <span class="c1">// 3. Build a Docker image for the application</span>
+                <span class="n">sh</span> <span class="s1">'docker build -t my-app:${BUILD_NUMBER} .'</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">stage</span><span class="o">(</span><span class="s1">'Deploy'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">steps</span> <span class="o">{</span>
+                <span class="c1">// 4. Push to a registry and deploy to a server</span>
+                <span class="n">sh</span> <span class="s1">'docker push my-registry/my-app:${BUILD_NUMBER}'</span>
+                <span class="n">sh</span> <span class="s1">'ssh user@deploy-server "docker pull ... &amp;&amp; docker run ..."'</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+</div>
+
+<p><br></p>
+
+<hr>
+<h3 id="technical-summary">Technical Summary</h3>
+<ul>
+  <li>
+<strong>Source Control:</strong> Self-hosted GitLab</li>
+  <li>
+<strong>Automation Server:</strong> Jenkins</li>
+  <li>
+<strong>Containerization:</strong> Docker</li>
+  <li>
+<strong>Operating System:</strong> Ubuntu Linux</li>
+  <li>
+<strong>Networking:</strong> Static IP configuration, DNS (Bind9)</li>
+</ul>
 
   </article>
 

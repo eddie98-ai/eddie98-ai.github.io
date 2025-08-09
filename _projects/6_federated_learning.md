@@ -4,7 +4,7 @@ title: Distributed Deep Learning for Anomaly Detection via Federated Learning
 description: A privacy-preserving intrusion detection system using Federated Learning to train models on decentralized data.
 img: assets/img/federated_learning_flowchart.png
 importance: 4
-category: Federated Learning & AI
+category: AI for Cybersecurity & Privacy
 ---
 
 
@@ -66,7 +66,7 @@ The final, aggregated DNN produces an output score for incoming network traffic.
 
 <div class="row mt-4">
     <div class="col-sm-7">
-        {% include figure.liquid path="assets/img/fl_threshold_chart.png" class="img-fluid rounded z-depth-1" alt="Chart showing Precision, Recall, and F1-Score at different thresholds." caption="Evaluation metrics showing the relationship between the decision threshold and model performance." %}
+        {% include figure.liquid path="assets/img/fl_threshold_metrics_chart.png" class="img-fluid rounded z-depth-1" alt="Chart showing Precision, Recall, and F1-Score at different thresholds." caption="Evaluation metrics showing the relationship between the decision threshold and model performance." %}
     </div>
     <div class="col-sm-5">
       <p style="margin-top: 1rem;">The table below shows the model's performance at various thresholds. Based on these results, a threshold of **0.6** was selected as the optimal balance, achieving a high F1-Score of 0.90 with 95% precision and 85% recall.</p>

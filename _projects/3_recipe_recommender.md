@@ -4,7 +4,7 @@ title: Smart Recipe Recommendation System
 description: A full-stack Django app recommending recipes based on ingredients and health needs.
 img: assets/img/recipe_recommender.png
 importance: 3
-category: Full-Stack & AI
+category: Intelligent Systems & User Experience
 ---
 
 This project is a full-stack Django web application that delivers personalized recipe recommendations. It was built upon a unique, fused dataset combining over 400 thousand global recipes with a custom-collected corpus of Syrian cuisine. The system leverages a hybrid recommendation engine and a nutritional analysis pipeline to provide meal suggestions that are not only tailored to a user's available ingredients but also to their specific health and dietary requirements.

@@ -17,12 +17,13 @@
   
   
     
-      COVID-19 Diagnosis with Deep Learning from CT Scans | Ahmad Debow (Edd)
+      2025 | Ahmad Debow (Edd)
     
   
 </title>
 <meta name="author" content="Ahmad  Debow">
-<meta name="description" content="A novel CNN architecture, AdjCNet, for classifying COVID-19, CAP, and Normal cases from CT scans.">
+<meta name="description" content="AI and MLOps Engineer with expertise in building and deploying scalable, real-world solutions.  Specialized in deep learning (GANs, CNNs, LSTMs), cloud-native infrastructure (AWS, GCP), and end-to-end MLOps pipelines.  Published researcher in biomedical AI and deep learning.
+">
 
   <meta name="keywords" content="Ahmad Debow, AI, MLOps, DevOps, Machine Learning, Deep Learning, Generative Adversarial Networks, GANs, AWS, GCP, Cloud Computing, Python, Docker, GitLab, CI/CD, Computer Vision, NLP, Large Language Models, Biomedical AI, Intrusion Detection Systems">
 
@@ -34,16 +35,18 @@
   <!-- OpenGraph -->
   <meta property="og:site_name" content="Ahmad Debow (Edd)">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Ahmad Debow (Edd) | COVID-19 Diagnosis with Deep Learning from CT Scans">
+  <meta property="og:title" content="Ahmad Debow (Edd)">
   <meta property="og:url" content="http://localhost:4000/projects/10_covid_diagnosis/">
-  <meta property="og:description" content="A novel CNN architecture, AdjCNet, for classifying COVID-19, CAP, and Normal cases from CT scans.">
+  <meta property="og:description" content="AI and MLOps Engineer with expertise in building and deploying scalable, real-world solutions.  Specialized in deep learning (GANs, CNNs, LSTMs), cloud-native infrastructure (AWS, GCP), and end-to-end MLOps pipelines.  Published researcher in biomedical AI and deep learning.
+">
   
   <meta property="og:locale" content="en">
 
   <!-- Twitter card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="COVID-19 Diagnosis with Deep Learning from CT Scans">
-  <meta name="twitter:description" content="A novel CNN architecture, AdjCNet, for classifying COVID-19, CAP, and Normal cases from CT scans.">
+  <meta name="twitter:title" content="Ahmad Debow (Edd)">
+  <meta name="twitter:description" content="AI and MLOps Engineer with expertise in building and deploying scalable, real-world solutions.  Specialized in deep learning (GANs, CNNs, LSTMs), cloud-native infrastructure (AWS, GCP), and end-to-end MLOps pipelines.  Published researcher in biomedical AI and deep learning.
+">
   
   
 
@@ -349,12 +352,21 @@
 
 <div class="post">
   <header class="post-header">
-    <h1 class="post-title">COVID-19 Diagnosis with Deep Learning from CT Scans</h1>
-    <p class="post-description">A novel CNN architecture, AdjCNet, for classifying COVID-19, CAP, and Normal cases from CT scans.</p>
+    <h1 class="post-title"></h1>
+    <p class="post-description"></p>
   </header>
 
   <article>
-    <p>During the COVID-19 pandemic, rapid and accurate diagnosis was critical. This project addresses the challenge of differentiating COVID-19 from Community Acquired Pneumonia (CAP) and normal cases using chest CT scans. The core contribution is a novel CNN architecture, <strong>AdjCNet</strong>, which achieves superior performance through specialized design.</p>
+    <h3 id="1-the-adjcnet-architecture">1. The AdjCNet Architecture</h3>
+
+<p>The proposed model, AdjCNet, is a hybrid architecture designed to maximize classification accuracy by leveraging multiple techniques:</p>
+<ul>
+  <li>It uses a <strong>ResNet</strong> backbone for powerful, deep feature extraction from the CT scan images.</li>
+  <li>It incorporates a <strong>Convolutional Block Attention Module (CBAM)</strong> to help the model focus on the most salient and diagnostically relevant regions within the scan.</li>
+  <li>The novel component, <strong>AdjCNet</strong>, is a custom CNN layer that specifically analyzes <strong>grayscale variations among adjacent areas</strong> in the image. This is a key differentiator, as subtle textural changes are often indicative of specific types of lung inflammation.</li>
+</ul>
+
+<p>This combined model achieved an outstanding overall classification accuracy of <strong>99.23%</strong>.</p>
 
 <figure>
   <picture>
@@ -368,50 +380,86 @@
   </picture>
 
   
-    <figcaption class="caption">Sample CT scans illustrating the visual similarities and differences between (a) COVID-19, (b) CAP, and (c) Normal lungs.</figcaption>
+    <figcaption class="caption">Sample CT scans illustrating the visual differences between (a) COVID-19, (b) Community Acquired Pneumonia (CAP), and (c) Normal lungs.</figcaption>
   
 </figure>
 
-<h3 id="1-the-adjcnet-architecture">1. The AdjCNet Architecture</h3>
-<p>The proposed model, AdjCNet, is a hybrid architecture designed to maximize classification accuracy.</p>
-<ul>
-  <li>It uses <strong>ResNet</strong> as a powerful backbone for deep feature extraction.</li>
-  <li>It incorporates a <strong>Convolutional Block Attention Module (CBAM)</strong> to help the model focus on the most salient regions within the CT scan.</li>
-  <li>The novel component, <strong>AdjCNet</strong>, is a custom CNN layer that specifically analyzes grayscale variations among adjacent areas in the image, a key differentiator in pneumonia diagnostics.
-This combined model achieved an outstanding classification accuracy of <strong>99.23%</strong>.</li>
-</ul>
+<hr>
 
-<h3 id="2-rigorous-evaluation-with-cross-validation">2. Rigorous Evaluation with Cross-Validation</h3>
-<p>To ensure the model’s robustness and generalizability, its performance was evaluated using a <strong>four-folds cross-validation</strong> methodology. This process involves splitting the data into four parts, training on three, and testing on the remaining one, rotating until each part has been used for testing. The final model demonstrated a mean accuracy of <strong>98.98%</strong> and mean precision of <strong>99.01%</strong> across the four folds, proving its superiority over existing methods on the dataset.</p>
+<h3 id="2-rigorous-evaluation-and-results">2. Rigorous Evaluation and Results</h3>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># Pseudocode for the evaluation process
-</span>
-<span class="n">FUNCTION</span> <span class="nc">Evaluate_Model_Performance</span><span class="p">(</span><span class="n">dataset</span><span class="p">):</span>
-    <span class="c1"># Split data into 4 folds for cross-validation
-</span>    <span class="n">data_folds</span> <span class="o">=</span> <span class="nf">split_into_k_folds</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<p>To ensure the model’s robustness and generalizability, its performance was evaluated using a <strong>four-folds cross-validation</strong> methodology. This process prevents overfitting and provides a more reliable measure of the model’s performance on unseen data.</p>
+
+<div class="row mt-4">
+    <div class="col-sm-7">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
     
-    <span class="n">fold_accuracies</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">fold_precisions</span> <span class="o">=</span> <span class="p">[]</span>
-    
-    <span class="n">FOR</span> <span class="n">i</span> <span class="n">FROM</span> <span class="mi">1</span> <span class="n">TO</span> <span class="mi">4</span><span class="p">:</span>
-        <span class="c1"># Assign training and testing data for the current fold
-</span>        <span class="n">training_data</span> <span class="o">=</span> <span class="nf">get_folds</span><span class="p">(</span><span class="n">data_folds</span><span class="p">,</span> <span class="k">except</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
-        <span class="n">testing_data</span> <span class="o">=</span> <span class="nf">get_fold</span><span class="p">(</span><span class="n">data_folds</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-        
-        <span class="c1"># Build and train a new model instance
-</span>        <span class="n">model</span> <span class="o">=</span> <span class="nf">build_AdjCNet_model</span><span class="p">()</span>
-        <span class="n">model</span><span class="p">.</span><span class="nf">train</span><span class="p">(</span><span class="n">training_data</span><span class="p">)</span>
-        
-        <span class="c1"># Evaluate on the hold-out test set
-</span>        <span class="n">accuracy</span><span class="p">,</span> <span class="n">precision</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="nf">evaluate</span><span class="p">(</span><span class="n">testing_data</span><span class="p">)</span>
-        
-        <span class="n">fold_accuracies</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">accuracy</span><span class="p">)</span>
-        <span class="n">fold_precisions</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">precision</span><span class="p">)</span>
-        
-    <span class="n">mean_accuracy</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">fold_accuracies</span><span class="p">)</span>
-    <span class="n">mean_precision</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">fold_precisions</span><span class="p">)</span>
-    
-    <span class="n">RETURN</span> <span class="n">mean_accuracy</span><span class="p">,</span> <span class="n">mean_precision</span></code></pre></figure>
+    <img src="/assets/img/covid_confusion_matrix.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" alt="Confusion matrix of the model's predictions." loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+    <figcaption class="caption">Confusion matrix showing the classification results for COVID-19, CAP, and Normal cases.</figcaption>
+  
+</figure>
+
+    </div>
+    <div class="col-sm-5">
+      <p style="margin-top: 1rem;">The confusion matrix provides a detailed breakdown of the model's performance. The strong diagonal from top-left to bottom-right indicates a high number of correct predictions. Specifically, the model correctly identified <strong>1880 COVID-19 cases</strong> while only misclassifying 17, and achieved a near-perfect result for Community Acquired Pneumonia (CAP), with <strong>655 correct predictions</strong> and only 1 error. This demonstrates the model's high sensitivity and precision.</p>
+      
+      <p>This strong performance is further validated by the four-folds cross-validation results, shown in the table below, which demonstrate a final mean accuracy of <strong>98.98%</strong>.</p>
+      
+      <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th style="text-align: center">Fold</th>
+            <th style="text-align: center">Accuracy</th>
+            <th style="text-align: center">Precision</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align: center">1</td>
+            <td style="text-align: center">0.9855</td>
+            <td style="text-align: center">0.9867</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">2</td>
+            <td style="text-align: center">0.9923</td>
+            <td style="text-align: center">0.9921</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">3</td>
+            <td style="text-align: center">0.9934</td>
+            <td style="text-align: center">0.9935</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">4</td>
+            <td style="text-align: center">0.9880</td>
+            <td style="text-align: center">0.9882</td>
+          </tr>
+          <tr class="table-primary">
+            <td style="text-align: center"><strong>Mean</strong></td>
+            <td style="text-align: center"><strong>0.9898</strong></td>
+            <td style="text-align: center"><strong>0.9901</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+</div>
+
+<p><br></p>
 
 <hr>
 <h3 id="technical-summary">Technical Summary</h3>

@@ -4,7 +4,7 @@ title: Predicting and Forecasting Water Quality
 description: A deep learning system using LSTMs to predict and forecast the Water Quality Index (WQI).
 img: assets/img/water_quality_factors.png
 importance: 1
-category: AI & Time Series
+category: AI for Sustainability & Environment
 ---
 
 This project addresses the critical challenge of obtaining clean water by developing a system to predict and forecast the Water Quality Index (WQI). The core of the project is a **4-stacked LSTM model** designed to accurately forecast water quality, even with incomplete data, providing a vital tool for environmental management.

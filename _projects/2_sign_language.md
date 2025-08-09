@@ -4,7 +4,7 @@ title: AI-Powered Sign Language & Assistive Technology
 description: A real-time sign language translation and speech therapy platform.
 img: assets/img/sign_language.png
 importance: 2
-category: AI & Machine Learning
+category: AI for Healthcare & Life Sciences
 ---
 
 This project focuses on making communication easier for people who are deaf or have speech disorders. It combines machine learning and computer vision to translate between sign language, spoken language, and text in real time.

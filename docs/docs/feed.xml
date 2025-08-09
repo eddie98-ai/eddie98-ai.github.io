@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-08-09T15:33:12+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ahmad Debow (Edd)</title><subtitle>AI and MLOps Engineer with expertise in building and deploying scalable, real-world solutions.  Specialized in deep learning (GANs, CNNs, LSTMs), cloud-native infrastructure (AWS, GCP), and end-to-end MLOps pipelines.  Published researcher in biomedical AI and deep learning.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-08-09T16:00:15+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ahmad Debow (Edd)</title><subtitle>AI and MLOps Engineer with expertise in building and deploying scalable, real-world solutions.  Specialized in deep learning (GANs, CNNs, LSTMs), cloud-native infrastructure (AWS, GCP), and end-to-end MLOps pipelines.  Published researcher in biomedical AI and deep learning.
 </subtitle><entry><title type="html">a post with plotly.js</title><link href="http://localhost:4000/blog/2025/plotly/" rel="alternate" type="text/html" title="a post with plotly.js" /><published>2025-03-26T17:24:00+03:00</published><updated>2025-03-26T17:24:00+03:00</updated><id>http://localhost:4000/blog/2025/plotly</id><content type="html" xml:base="http://localhost:4000/blog/2025/plotly/"><![CDATA[<p>This is an example post with some <a href="https://plotly.com/javascript/">plotly</a> code.</p>
 
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">plotly
@@ -185,7 +185,7 @@ Content 2
 
 <p>With this you can generate visualizations like:</p>
 
-<ul id="log" class="tab" data-tab="1b887dd1-e3e9-4787-b98c-96ebfcf45419" data-name="log">
+<ul id="log" class="tab" data-tab="1cdc9b0f-77aa-4c59-97e1-ffd7904d49ac" data-name="log">
   
       <li class="active" id="log-php">
           <a href="#">php </a>
@@ -200,7 +200,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="1b887dd1-e3e9-4787-b98c-96ebfcf45419" data-name="log">
+<ul class="tab-content" id="1cdc9b0f-77aa-4c59-97e1-ffd7904d49ac" data-name="log">
   
       <li class="active">
 <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">var_dump</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
@@ -224,7 +224,7 @@ Content 2
 
 <h2 id="another-example">Another example</h2>
 
-<ul id="data-struct" class="tab" data-tab="e10b9691-26a1-4f97-b8ec-3e937d0a3443" data-name="data-struct">
+<ul id="data-struct" class="tab" data-tab="d9e05c79-5294-4ac4-84ef-b48e71617d00" data-name="data-struct">
   
       <li class="active" id="data-struct-yaml">
           <a href="#">yaml </a>
@@ -235,7 +235,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="e10b9691-26a1-4f97-b8ec-3e937d0a3443" data-name="data-struct">
+<ul class="tab-content" id="d9e05c79-5294-4ac4-84ef-b48e71617d00" data-name="data-struct">
   
       <li class="active">
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hello</span><span class="pi">:</span>
@@ -257,7 +257,7 @@ Content 2
 
 <h2 id="tabs-for-something-else">Tabs for something else</h2>
 
-<ul id="something-else" class="tab" data-tab="4da199c6-ba1a-4439-b794-d2f520b06bde" data-name="something-else">
+<ul id="something-else" class="tab" data-tab="9a227571-45c4-41e0-968b-96c4c3b76fdf" data-name="something-else">
   
       <li class="active" id="something-else-text">
           <a href="#">text </a>
@@ -272,7 +272,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="4da199c6-ba1a-4439-b794-d2f520b06bde" data-name="something-else">
+<ul class="tab-content" id="9a227571-45c4-41e0-968b-96c4c3b76fdf" data-name="something-else">
   
       <li class="active">
 <p>Regular text</p>

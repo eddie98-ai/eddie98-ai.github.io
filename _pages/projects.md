@@ -5,6 +5,8 @@ permalink: /projects/
 description: A selection of projects spanning AI, MLOps, and Cybersecurity.
 nav: true
 nav_order: 3
+display_categories: ["AI for Cybersecurity & Privacy", "AI for Healthcare & Life Sciences", "AI for Sustainability & Environment", "DevOps & MLOps Infrastructure", "Intelligent Systems & User Experience"]
+
 horizontal: false
 ---
 
