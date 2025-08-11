@@ -27,6 +27,27 @@
     <script src="/assets/js/theme.js?a81d82887dd692e91686b43de4542f18"></script>
     <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark">
     <script>initTheme();</script>
+
+    <!-- CUSTOM STYLE FOR CATEGORY HEADERS -->
+    <style>
+      :root {
+        --category-text-color: #495057; /* Dark grey for light mode */
+        --category-border-color: #dee2e6; /* Light border for light mode */
+      }
+      body.dark {
+        --category-text-color: #adb5bd; /* Lighter grey for dark mode */
+        --category-border-color: #495057; /* Darker border for dark mode */
+      }
+      h2.category {
+        color: var(--category-text-color);
+        border-bottom: 2px solid var(--category-border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+      }
+    </style>
+
   </head>
   <!-- Body -->
   <body class="fixed-top-nav ">
@@ -73,7 +94,7 @@
             <!-- Category 1: AI for Cybersecurity & Privacy -->
             <a id="ai-for-cybersecurity--privacy" href=".#ai-for-cybersecurity--privacy"><h2 class="category">AI for Cybersecurity & Privacy</h2></a>
             <div class="row row-cols-1 row-cols-md-3">
-              <div class="col"><a href="/projects/9_ids_attacks/"><div class="card h-100 hoverable"><img src="/assets/img/federated_learning_flowchart.png" class="card-img-top" width="100%" height="auto" alt="project thumbnail" loading="eager"><div class="card-body"><h2 class="card-title">Launching and Thwarting Attacks on AI-based Intrusion Detection Systems</h2><p class="card-text">Using GANs and SHAP to generate polymorphic attacks for testing and improving the robustness of an IDS.</p></div></div></a></div>
+              <div class="col"><a href="/projects/9_ids_attacks/"><div class="card h-100 hoverable"><img src="/assets/img/ids_shap_barchart.png" class="card-img-top" width="100%" height="auto" alt="project thumbnail" loading="eager"><div class="card-body"><h2 class="card-title">Launching and Thwarting Attacks on AI-based Intrusion Detection Systems</h2><p class="card-text">Using GANs and SHAP to generate polymorphic attacks for testing and improving the robustness of an IDS.</p></div></div></a></div>
               <div class="col"><a href="/projects/6_federated_learning/"><div class="card h-100 hoverable"><img src="/assets/img/federated_learning_flowchart.png" class="card-img-top" width="100%" height="auto" alt="project thumbnail" loading="eager"><div class="card-body"><h2 class="card-title">Distributed Deep Learning for Anomaly Detection via Federated Learning</h2><p class="card-text">A privacy-preserving intrusion detection system using Federated Learning to train models on decentralized data.</p></div></div></a></div>
               <div class="col"><a href="/projects/7_tor_network/"><div class="card h-100 hoverable"><img src="/assets/img/tor_network.png" class="card-img-top" width="100%" height="auto" alt="project thumbnail" loading="eager"><div class="card-body"><h2 class="card-title">TOR Network Detection via Machine Learning</h2><p class="card-text">Building and evaluating machine learning classifiers to identify encrypted TOR network traffic from raw packet data.</p></div></div></a></div>
             </div>
@@ -81,7 +102,7 @@
             <!-- Category 2: AI for Healthcare & Life Sciences -->
             <a id="ai-for-healthcare--life-sciences" href=".#ai-for-healthcare--life-sciences"><h2 class="category">AI for Healthcare & Life Sciences</h2></a>
             <div class="row row-cols-1 row-cols-md-3">
-              <div class="col"><a href="/projects/10_covid_diagnosis/"><div class="card h-100 hoverable"><img src="/assets/img/contradiction_detection.png" class="card-img-top" width="100%" height="auto" alt="project thumbnail" loading="eager"><div class="card-body"><h2 class="card-title">COVID-19 Diagnosis with Deep Learning from CT Scans</h2><p class="card-text">A novel CNN architecture, AdjCNet, for classifying COVID-19, Pneumonia, and Normal cases from CT scans.</p></div></div></a></div>
+              <div class="col"><a href="/projects/10_covid_diagnosis/"><div class="card h-100 hoverable"><img src="/assets/img/covid_confusion.png" class="card-img-top" width="100%" height="auto" alt="project thumbnail" loading="eager"><div class="card-body"><h2 class="card-title">COVID-19 Diagnosis with Deep Learning from CT Scans</h2><p class="card-text">A novel CNN architecture, AdjCNet, for classifying COVID-19, Pneumonia, and Normal cases from CT scans.</p></div></div></a></div>
               <div class="col"><a href="/projects/2_sign_language/"><div class="card h-100 hoverable"><img src="/assets/img/sign_language.png" class="card-img-top" width="100%" height="auto" alt="project thumbnail" loading="eager"><div class="card-body"><h2 class="card-title">AI-Powered Sign Language &amp; Assistive Technology</h2><p class="card-text">A real-time sign language translation and speech therapy platform.</p></div></div></a></div>
             </div>
 
