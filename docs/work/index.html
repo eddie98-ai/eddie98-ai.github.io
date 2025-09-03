@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit-no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>work | Ahmad Debow (Edd)</title>
     <meta name="author" content="Ahmad Debow">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous">
     <!-- Fonts & Icons -->
-    <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c5c5f3463ac249818f5">
+    <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5">
     <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772">
     <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -28,6 +28,20 @@
     <script src="/assets/js/theme.js?a81d82887dd692e91686b43de4542f18"></script>
     <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark">
     <script>initTheme();</script>
+    <!-- Custom Styles -->
+    <style>
+      .company-logo {
+        max-width: 60px;
+        border-radius: 10%;
+        margin-bottom: 10px;
+        border: 1px solid #eee;
+      }
+      .company-link {
+        margin-left: 8px;
+        font-size: 1.1rem;
+        vertical-align: middle;
+      }
+    </style>
   </head>
   <!-- Body -->
   <body class="fixed-top-nav ">
@@ -51,7 +65,7 @@
               <li class="nav-item active"><a class="nav-link" href="/work/">work<span class="sr-only">(current)</span></a></li>
               <li class="nav-item "><a class="nav-link" href="/teaching/">teaching</a></li>
               <li class="nav-item "><a class="nav-link" href="/cv/">cv</a></li>
-              <li class="nav-item "><a class="nav-link" href="/people/">references</a></li>
+              <li class="nav-item "><a class="nav-link" href="/references/">references</a></li>
               <li class="toggle-container">
                 <button id="light-toggle" title="Change theme"><i class="ti ti-sun-moon" id="light-toggle-system"></i><i class="ti ti-moon-filled" id="light-toggle-dark"></i><i class="ti ti-sun-filled" id="light-toggle-light"></i></button>
               </li>
@@ -79,39 +93,24 @@
                   <li class="list-group-item">
                     <div class="row">
                       <div class="col-xs-2 cl-sm-2 col-md-2 text-center" style="width: 75px">
+                        <img src="/assets/img/maly_logo.png" alt="Maly Tech Logo" class="company-logo">
                         <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">2023 - Present</span>
                       </div>
                       <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
                         <h6 class="title font-weight-bold ml-1 ml-md-4">Lead DevOps & MLOps Engineer</h6>
-                        <h6 class="title font-weight-light ml-1 ml-md-4" style="font-style: italic;"><a href="https://maly.ai/" target="_blank" rel="noopener noreferrer">Maly Tech Ltd</a>, Dubai, UAE</h6>
+                        <h6 class="title font-weight-light ml-1 ml-md-4" style="font-style: italic;">
+                          <a href="https://maly.ai/" target="_blank" rel="noopener noreferrer">Maly Tech Ltd</a>, Dubai, UAE
+                          <a href="https://www.linkedin.com/company/maly-tech/" target="_blank" rel="noopener noreferrer" class="company-link"><i class="fab fa-linkedin"></i></a>
+                        </h6>
                         <ul class="items">
-                          <li>Designed and managed a scalable microservice infrastructure on **AWS ECS**, with each service containerized using **Docker** and deployed via automated **AWS CodePipeline** workflows.</li>
-                          <li>Administered cloud networking, including **VPC** configuration, subnetting, and **Application Load Balancers** to ensure high availability and secure traffic distribution.</li>
+                          <li>Designed and managed a scalable microservice infrastructure on <strong>AWS ECS</strong>, with each service containerized using <strong>Docker</strong> and deployed via automated <strong>AWS CodePipeline</strong> workflows.</li>
+                          <li>Administered cloud networking, including <strong>VPC</strong> configuration, subnetting, and <strong>Application Load Balancers</strong> to ensure high availability and secure traffic distribution.</li>
                           <li>Managed database solutions on AWS, including provisioning, backups, and performance tuning.</li>
-                          <li>Oversaw cloud security, monitoring infrastructure with AWS native tools, managing **IAM** roles, and coordinating periodic **penetration tests** to ensure compliance.</li>
-                          <li>Led the company's **ISO 27001 certification** effort as the ISMS Manager, authoring security policies, disaster recovery plans, and enforcing the principle of least privilege.</li>
-                          <li>Managed **FinOps**, optimizing costs across multiple AWS and GCP subscriptions.</li>
-                          <li>Bridged the gap between development and operations teams, facilitating smooth integration and deployment of AI applications on AWS, **GCP**, and **MongoDB Atlas**.</li>
+                          <li>Oversaw cloud security, monitoring infrastructure with AWS native tools, managing <strong>IAM</strong> roles, and coordinating periodic <strong>penetration tests</strong> to ensure compliance.</li>
+                          <li>Led the company's <strong>ISO 27001 certification</strong> effort as the ISMS Manager, authoring security policies, disaster recovery plans, and enforcing the principle of least privilege.</li>
+                          <li>Managed <strong>FinOps</strong>, optimizing costs across multiple AWS and GCP subscriptions.</li>
+                          <li>Bridged the gap between development and operations teams, facilitating smooth integration and deployment of AI applications on AWS, <strong>GCP</strong>, and <strong>MongoDB Atlas</strong>.</li>
                           <li>Acted as the primary technical liaison with external partners to supervise and ensure successful system integrations.</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </li>
-                  <!-- DIB GmbH -->
-                  <li class="list-group-item">
-                    <div class="row">
-                      <div class="col-xs-2 cl-sm-2 col-md-2 text-center" style="width: 75px">
-                        <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">2022 - 2023</span>
-                      </div>
-                      <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
-                        <h6 class="title font-weight-bold ml-1 ml-md-4">Backend Developer</h6>
-                        <h6 class="title font-weight-light ml-1 ml-md-4" style="font-style: italic;"><a href="https://dib-holding.com/" target="_blank" rel="noopener noreferrer">DIB GmbH</a>, Germany</h6>
-                        <ul class="items">
-                          <li>Engineered and deployed enterprise-grade **VoIP** systems using **Asterisk**, managing real-time communication protocols like **SIP** and **RTP**.</li>
-                          <li>Developed AI models to enhance VoIP performance, such as using **deep learning for intelligent noise suppression** and **predictive models for call routing optimization** based on network quality metrics.</li>
-                          <li>Managed audio/video codec configuration, optimizing for low-latency transmission and efficient bandwidth usage.</li>
-                          <li>Implemented robust encryption for call data in transit and at rest to ensure communication security.</li>
-                          <li>Containerized all microservices using **Docker** and managed their deployment on dedicated servers, ensuring service reliability and scalability.</li>
                         </ul>
                       </div>
                     </div>
@@ -120,15 +119,42 @@
                   <li class="list-group-item">
                     <div class="row">
                       <div class="col-xs-2 cl-sm-2 col-md-2 text-center" style="width: 75px">
+                        <img src="/assets/img/nextinuous_logo.png" alt="Nextinuous Logo" class="company-logo">
                         <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">2023 - 2024</span>
                       </div>
                       <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
                         <h6 class="title font-weight-bold ml-1 ml-md-4">Data Engineer</h6>
-                        <h6 class="title font-weight-light ml-1 ml-md-4" style="font-style: italic;">Nextinuous (MDcin Platform), California, USA</h6>
+                        <h6 class="title font-weight-light ml-1 ml-md-4" style="font-style: italic;">
+                          Nextinuous (MDcin Platform), California, USA
+                          <a href="https://www.linkedin.com/company/nextinuous/" target="_blank" rel="noopener noreferrer" class="company-link"><i class="fab fa-linkedin"></i></a>
+                        </h6>
                         <ul class="items">
-                          <li>Developed a scalable data pipeline for a social media platform using **Apache NiFi** to ingest unstructured data (blogs, posts, jobs) from diverse social media sources via APIs and web scraping.</li>
-                          <li>Utilized the **ELK Stack** (Elasticsearch, Logstash, Kibana) to process, transform, and index the ingested data, creating a centralized and searchable data warehouse.</li>
-                          <li>Designed and implemented a content-based **recommendation system** that analyzed indexed user interactions and post content to suggest similar and relevant posts to users.</li>
+                          <li>Developed a scalable data pipeline for a social media platform using <strong>Apache NiFi</strong> to ingest unstructured data (blogs, posts, jobs) from diverse social media sources via APIs and web scraping.</li>
+                          <li>Utilized the <strong>ELK Stack</strong> (Elasticsearch, Logstash, Kibana) to process, transform, and index the ingested data, creating a centralized and searchable data warehouse.</li>
+                          <li>Designed and implemented a content-based <strong>recommendation system</strong> that analyzed indexed user interactions and post content to suggest similar and relevant posts to users.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <!-- DIB GmbH -->
+                  <li class="list-group-item">
+                    <div class="row">
+                      <div class="col-xs-2 cl-sm-2 col-md-2 text-center" style="width: 75px">
+                        <img src="/assets/img/dib_logo.png" alt="DIB GmbH Logo" class="company-logo">
+                        <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">2022 - 2023</span>
+                      </div>
+                      <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
+                        <h6 class="title font-weight-bold ml-1 ml-md-4">Backend Developer</h6>
+                        <h6 class="title font-weight-light ml-1 ml-md-4" style="font-style: italic;">
+                          <a href="https://dib-holding.com/" target="_blank" rel="noopener noreferrer">DIB GmbH</a>, Germany
+                          <a href="https://www.linkedin.com/company/dib-gmbh/" target="_blank" rel="noopener noreferrer" class="company-link"><i class="fab fa-linkedin"></i></a>
+                        </h6>
+                        <ul class="items">
+                          <li>Engineered and deployed enterprise-grade <strong>VoIP</strong> systems using <strong>Asterisk</strong>, managing real-time communication protocols like <strong>SIP</strong> and <strong>RTP</strong>.</li>
+                          <li>Developed AI models to enhance VoIP performance, such as using <strong>deep learning for intelligent noise suppression</strong> and <strong>predictive models for call routing optimization</strong> based on network quality metrics.</li>
+                          <li>Managed audio/video codec configuration, optimizing for low-latency transmission and efficient bandwidth usage.</li>
+                          <li>Implemented robust encryption for call data in transit and at rest to ensure communication security.</li>
+                          <li>Containerized all microservices using <strong>Docker</strong> and managed their deployment on dedicated servers, ensuring service reliability and scalability.</li>
                         </ul>
                       </div>
                     </div>
