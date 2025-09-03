@@ -17,6 +17,7 @@
     <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5">
     <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772">
     <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Code Syntax Highlighting -->
     <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light">
     <!-- Styles -->
@@ -50,7 +51,7 @@
               <li class="nav-item "><a class="nav-link" href="/work/">work</a></li>
               <li class="nav-item "><a class="nav-link" href="/teaching/">teaching</a></li>
               <li class="nav-item "><a class="nav-link" href="/cv/">cv</a></li>
-              <li class="nav-item "><a class="nav-link" href="/people/">references</a></li>
+              <li class="nav-item "><a class="nav-link" href="/prople/">references</a></li>
               <li class="toggle-container">
                 <button id="light-toggle" title="Change theme"><i class="ti ti-sun-moon" id="light-toggle-system"></i><i class="ti ti-moon-filled" id="light-toggle-dark"></i><i class="ti ti-sun-filled" id="light-toggle-light"></i></button>
               </li>
@@ -75,33 +76,30 @@
           <p>The system was designed as an integrated pipeline consisting of several logical phases, each built upon state-of-the-art technologies in Natural Language Processing (NLP) and Deep Learning.</p>
           
           <h5 class="mt-4">Phase 1: Speech-to-Text with Speaker Diarization</h5>
-          <p>The foundation of the project is the accurate conversion of audio into text. The advanced <strong>WhisperX</strong> model was chosen for this task due to its ability to provide high-accuracy transcription along with **Speaker Diarization**, which automatically identifies and separates the customer's speech from the agent's—a critical step for all subsequent analysis.</p>
+          <p>The foundation of the project is the accurate conversion of audio into text. The advanced <strong>WhisperX</strong> model was chosen for this task due to its ability to provide high-accuracy transcription along with <strong>Speaker Diarization</strong>, which automatically identifies and separates the customer's speech from the agent's—a critical step for all subsequent analysis.</p>
 
           <h5 class="mt-4">Phase 2: Text Analysis with LLMs</h5>
-          <p>Once structured text was obtained, a suite of pre-trained Transformer models, served via a FastAPI application, was used to extract key features like <strong>Abstractive Summarization</strong> (<code>facebook/bart-large-cnn</code>), <strong>Sentiment Analysis</strong> (<code>cardiffnlp/twitter-roberta-base-sentiment-latest</code>), and initial **Call Outcome Classification** (Zero-Shot with <code>facebook/bart-large-mnli</code>).</p>
+          <p>Once structured text was obtained, a suite of pre-trained Transformer models, served via a FastAPI application, was used to extract key features like <strong>Abstractive Summarization</strong> (<code>facebook/bart-large-cnn</code>), <strong>Sentiment Analysis</strong> (<code>cardiffnlp/twitter-roberta-base-sentiment-latest</code>), and initial <strong>Call Outcome Classification</strong> (Zero-Shot with <code>facebook/bart-large-mnli</code>).</p>
           <hr>
           <h3 id="2-custom-deep-learning-for-outcome-classification">2. Custom Deep Learning for Outcome Classification</h3>
           <p>To achieve superior accuracy in determining if a customer's problem was resolved, a custom solution was developed. A <strong><code>DistilBERT</code></strong> model was fine-tuned on a large, tailored dataset (<code>AIxBlock/92k-real-world-call-center-scripts-english</code>), learning the specific patterns of support dialogues to create a highly specialized and accurate classifier.</p>
-          <figure>
-            <picture><img src="/assets/img/call_center_model_architecture.png" width="100%" height="auto" alt="Diagram of the Custom Hierarchical Model Architecture" loading="lazy"></picture>
-            <figcaption class="caption">Architecture of the custom Deep Learning model for outcome classification.</figcaption>
-          </figure>
+          <div class="row justify-content-center">
+              <div class="col-sm-10 col-md-8">
+                  <figure>
+                    <picture><img src="/assets/img/call_center_model_architecture.png" class="img-fluid rounded z-depth-1" alt="Diagram of the Custom Hierarchical Model Architecture" loading="lazy"></picture>
+                    <figcaption class="caption">Architecture of the custom Deep Learning model for outcome classification.</figcaption>
+                  </figure>
+              </div>
+          </div>
           <hr>
           <h3 id="3-rag-powered-interactive-chatbot">3. RAG-Powered Interactive Chatbot</h3>
           <p>To make the analyzed data queryable, an advanced chatbot was developed using a <strong>Retrieval-Augmented Generation (RAG)</strong> architecture. This chatbot searches the knowledge base of call summaries to find information relevant to a user's query and then uses the <code>t5-base</code> model to generate a natural, concise answer supported by sources.</p>
-          <figure>
-            <picture><img src="/assets/img/call_center_rag_diagram.png" width="100%" height="auto" alt="Diagram of the RAG Chatbot Architecture" loading="lazy"></picture>
-            <figcaption class="caption">Workflow of the Retrieval-Augmented Generation (RAG) chatbot.</figcaption>
-          </figure>
-          <hr>
-          <h3 id="4-results--statistical-analysis">4. Results & Statistical Analysis</h3>
-          <p>The analysis pipeline was executed on a complete dataset of <strong>1,269 calls</strong>. The results provide a clear overview of customer experience and agent effectiveness. For example, while 66% of calls were problem-oriented (Negative Sentiment), the agents successfully achieved a <strong>Problem Resolution Rate of 72.7%</strong>.</p>
-          <div class="row mt-4">
-              <div class="col-sm-6">
-                  <figure><picture><img src="/assets/img/call_center_sentiment_chart.png" class="img-fluid rounded z-depth-1" alt="Pie chart of sentiment distribution." loading="lazy"></picture><figcaption class="caption">Overall Sentiment Distribution of Calls</figcaption></figure>
-              </div>
-              <div class="col-sm-6">
-                  <figure><picture><img src="/assets/img/call_center_outcomes_chart.png" class="img-fluid rounded z-depth-1" alt="Bar chart of call outcomes." loading="lazy"></picture><figcaption class="caption">Breakdown of Call Outcomes</figcaption></figure>
+          <div class="row justify-content-center">
+              <div class="col-sm-10 col-md-8">
+                  <figure>
+                    <picture><img src="/assets/img/call_center_rag_diagram.png" class="img-fluid rounded z-depth-1" alt="Diagram of the RAG Chatbot Architecture" loading="lazy"></picture>
+                    <figcaption class="caption">Workflow of the Retrieval-Augmented Generation (RAG) chatbot.</figcaption>
+                  </figure>
               </div>
           </div>
           <hr>
@@ -112,6 +110,12 @@
             <li><strong>Custom Model:</strong> Fine-tuned DistilBERT with TensorFlow/Keras</li>
             <li><strong>Chatbot:</strong> Retrieval-Augmented Generation (RAG) with T5</li>
             <li><strong>Backend:</strong> FastAPI</li>
+          </ul>
+          <hr>
+          <h3 id="team-members">Team Members</h3>
+          <ul>
+            <li>Ahmad Debow</li>
+            <li>Sami Farah (<a href="mailto:samifarah2013@gmail.com">samifarah2013@gmail.com</a>)</li>
           </ul>
         </article>
       </div>
