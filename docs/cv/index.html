@@ -28,28 +28,6 @@
     <script src="/assets/js/theme.js?a81d82887dd692e91686b43de4542f18"></script>
     <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark">
     <script>initTheme();</script>
-    <!-- Custom Styles for Roadmap -->
-    <style>
-      .cv-roadmap {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 5rem; /* Adjust based on navbar height */
-      }
-      .cv-roadmap .nav-link {
-        padding: 0.5rem 1rem;
-        color: #6c757d;
-        border-left: 2px solid transparent;
-      }
-      .cv-roadmap .nav-link.active,
-      .cv-roadmap .nav-link:hover {
-        color: var(--global-theme-color);
-        border-left: 2px solid var(--global-theme-color);
-        font-weight: 500;
-      }
-      body.dark .cv-roadmap .nav-link {
-        color: #adb5bd;
-      }
-    </style>
   </head>
   <!-- Body -->
   <body class="fixed-top-nav ">
@@ -73,7 +51,7 @@
               <li class="nav-item "><a class="nav-link" href="/work/">work</a></li>
               <li class="nav-item "><a class="nav-link" href="/teaching/">teaching</a></li>
               <li class="nav-item active"><a class="nav-link" href="/cv/">cv<span class="sr-only">(current)</span></a></li>
-              <li class="nav-item "><a class="nav-link" href="/references/">references</a></li>
+              <li class="nav-item "><a class="nav-link" href="/people/">references</a></li>
               <li class="toggle-container">
                 <button id="light-toggle" title="Change theme"><i class="ti ti-sun-moon" id="light-toggle-system"></i><i class="ti ti-moon-filled" id="light-toggle-dark"></i><i class="ti ti-sun-filled" id="light-toggle-light"></i></button>
               </li>
@@ -81,4 +59,127 @@
           </div>
         </div>
       </nav>
-      <progress id="progress" value="0"><div class="progress-container"><span class="progress
+      <progress id="progress" value="0"><div class="progress-container"><span class="progress-bar"></span></div></progress>
+    </header>
+
+    <!-- Content -->
+    <div class="container mt-5" role="main">
+      <div class="post">
+        <header class="post-header">
+          <h1 class="post-title">cv <a href="/assets/pdf/longCV090325.pdf" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf"></i></a></h1>
+          <p class="post-description">My professional and academic curriculum vitae.</p>
+        </header>
+        <article>
+          <div class="cv">
+            <!-- Education Section -->
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">Education</h3>
+              <ul class="card-text font-weight-light list-group list-group-flush">
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-xs-2 cl-sm-2 col-md-2 text-center" style="width: 75px">
+                      <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">2016 - 2022</span>
+                    </div>
+                    <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
+                      <h6 class="title font-weight-bold ml-1 ml-md-4">BSc, Information Systems Engineering</h6>
+                      <div class="ml-1 ml-md-4"><i class="fas fa-university mr-2"></i>Higher Institute for Applied Sciences and Technology (HIAST), Damascus, Syria</div>
+                      <ul class="items">
+                        <li><span class="item"><strong>Thesis:</strong> <em>Deep Learning for Launching and Thwarting Attacks on AI-based Intrusion Detection Systems.</em></span></li>
+                        <li><span class="item">Final Grade of 75.65%, <strong>Ranked 1st in class.</strong></span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- Work Experience Section -->
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">Work Experience</h3>
+              <ul class="card-text font-weight-light list-group list-group-flush">
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-xs-2 cl-sm-2 col-md-2 text-center" style="width: 75px"><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">2023 - Present</span></div>
+                    <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
+                      <h6 class="title font-weight-bold ml-1 ml-md-4">Lead DevOps &amp; MLOps Engineer</h6>
+                      <div class="ml-1 ml-md-4"><i class="fas fa-building mr-2"></i>Maly Tech Ltd, Dubai, UAE</div>
+                      <ul class="items">
+                        <li><span class="item">Led deployment of AI-powered fintech applications on <strong>AWS</strong> and <strong>GCP</strong>.</span></li>
+                        <li><span class="item">Designed and maintained scalable infrastructure using <strong>Docker</strong> and <strong>ECS</strong>.</span></li>
+                        <li><span class="item">Built CI/CD pipelines with <strong>GitLab</strong> and implemented full-stack <strong>MLOps</strong> workflows.</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-xs-2 cl-sm-2 col-md-2 text-center" style="width: 75px"><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">2023 - 2024</span></div>
+                    <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
+                      <h6 class="title font-weight-bold ml-1 ml-md-4">Data Engineer</h6>
+                      <div class="ml-1 ml-md-4"><i class="fas fa-building mr-2"></i>Nextinuous, California, USA</div>
+                       <ul class="items">
+                        <li><span class="item">Developed scalable data pipelines using the <strong>ELK Stack</strong> and <strong>Apache NiFi</strong>.</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-xs-2 cl-sm-2 col-md-2 text-center" style="width: 75px"><span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">2022 - 2023</span></div>
+                    <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
+                      <h6 class="title font-weight-bold ml-1 ml-md-4">Backend Developer</h6>
+                      <div class="ml-1 ml-md-4"><i class="fas fa-building mr-2"></i>DIB GmbH, Germany</div>
+                      <ul class="items">
+                          <li><span class="item">Engineered VoIP communication systems using <strong>Asterisk</strong>.</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- Volunteering & Clubs Section -->
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">Volunteering & Clubs</h3>
+              <ul class="card-text font-weight-light list-group list-group-flush">
+                <li class="list-group-item"><div class="row"><div class="col-md-4"><strong>Peer Reviewer</strong></div><div class="col-md-8">Biomedical Signal Processing and Control, Elsevier</div></div></li>
+                <li class="list-group-item"><div class="row"><div class="col-md-4"><strong>Founder & Chief</strong></div><div class="col-md-8">AI and Python Club, HIAST</div></div></li>
+                <li class="list-group-item"><div class="row"><div class="col-md-4"><strong>Founder & Judge</strong></div><div class="col-md-8">Chess Club, HIAST</div></div></li>
+                <li class="list-group-item"><div class="row"><div class="col-md-4"><strong>Red Crescent Volunteer</strong></div><div class="col-md-8">COVID-19 Response, Tartous</div></div></li>
+              </ul>
+            </div>
+            <!-- Technical Skills Section -->
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">Technical Skills</h3>
+              <ul class="list-group list-group-flush" style="list-style-type: none; padding-left: 0;">
+                <li class="list-group-item"><strong>Cloud Platforms & Infrastructure:</strong> AWS (EC2, ECS, RDS, Security Hub), Google Cloud Platform (Cloud Run, Compute Engine), Linux server administration, DNS, routing, gateways, load balancing, Docker, microservices architecture.</li>
+                <li class="list-group-item"><strong>DevOps & Automation:</strong> CI/CD pipelines with GitLab, Jenkins, Docker; Python and Bash scripting for automation, configuration management, stress testing, and system orchestration.</li>
+                <li class="list-group-item"><strong>Artificial Intelligence & Machine Learning:</strong> Deep learning (CNNs, LSTMs, GANs, DNNs), traditional ML, Large Language Models (LLMs); frameworks: TensorFlow, PyTorch, Keras, Scikit-learn.</li>
+                <li class="list-group-item"><strong>Programming & Tools:</strong> Python (NumPy, Pandas, Scikit-learn), C, C++, C#, SQL (PostgreSQL, MariaDB), Java, JavaScript, Django, Git, Bash.</li>
+              </ul>
+            </div>
+            <!-- Languages Section -->
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">Languages</h3>
+              <ul class="list-group list-group-flush" style="list-style-type: none; padding-left: 0;">
+                <li class="list-group-item"><strong>Arabic:</strong> Native proficiency.</li>
+                <li class="list-group-item"><strong>English:</strong> IELTS certified – Reading: C1, Writing: B2, Listening: B2, Speaking: B2.</li>
+                <li class="list-group-item"><strong>French:</strong> Conversant with basic reading, writing, and speaking skills.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="fixed-bottom" role="contentinfo">
+      <div class="container mt-0">
+        © Copyright 2025 Ahmad Debow. Last updated: August 09, 2025.
+      </div>
+    </footer>
+    <!-- JavaScripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+    <script defer src="/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"></script>
+    <!-- ... and other scripts ... -->
+  </body>
+</html>
