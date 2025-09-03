@@ -20,7 +20,7 @@
     <!-- Code Syntax Highlighting -->
     <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light">
     <!-- Styles -->
-    <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%92%BB&lt;/text&gt;&lt;/svg&gt;">
+    <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%A7%A0&lt;/text&gt;&lt;/svg&gt;">
     <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
     <link rel="canonical" href="http://localhost:4000/projects/">
     <!-- Dark Mode -->
@@ -47,6 +47,7 @@
         font-weight: 500;
       }
     </style>
+
   </head>
   <!-- Body -->
   <body class="fixed-top-nav ">
@@ -68,10 +69,9 @@
               <li class="nav-item "><a class="nav-link" href="/publications/">publications</a></li>
               <li class="nav-item active"><a class="nav-link" href="/projects/">projects<span class="sr-only">(current)</span></a></li>
               <li class="nav-item "><a class="nav-link" href="/work/">work</a></li>
-         
-              <li class="nav-item "><a class="nav-link" href="/teaching/">teaching</a></li> 
+              <li class="nav-item "><a class="nav-link" href="/teaching/">teaching</a></li>
               <li class="nav-item "><a class="nav-link" href="/cv/">cv</a></li>
-              <li class="nav-item "><a class="nav-link" href="/people/">references</a></li>
+              <li class="nav-item "><a class="nav-link" href="/references/">references</a></li>
               <li class="toggle-container">
                 <button id="light-toggle" title="Change theme"><i class="ti ti-sun-moon" id="light-toggle-system"></i><i class="ti ti-moon-filled" id="light-toggle-dark"></i><i class="ti ti-sun-filled" id="light-toggle-light"></i></button>
               </li>
@@ -90,52 +90,12 @@
           <p class="post-description">A selection of projects spanning AI, MLOps, and Cybersecurity.</p>
         </header>
         <article>
-          
-          <!-- SEARCH BAR -->
-          <div id="projects-search-container">
-            <input type="text" id="projects-search-input" class="search form-control" placeholder="Type to filter projects...">
-          </div>
-
-          <!-- JAVASCRIPT FOR SEARCH FUNCTIONALITY -->
-          <script>
-            document.addEventListener('DOMContentLoaded', function() {
-              const searchInput = document.getElementById('projects-search-input');
-              const projects = document.querySelectorAll('.projects .col');
-              const categories = document.querySelectorAll('.projects .category');
-
-              searchInput.addEventListener('keyup', function(event) {
-                const query = event.target.value.toLowerCase();
-
-                projects.forEach(project => {
-                  const title = project.querySelector('.card-title') ? project.querySelector('.card-title').textContent.toLowerCase() : '';
-                  const description = project.querySelector('.card-text') ? project.querySelector('.card-text').textContent.toLowerCase() : '';
-                  
-                  if (title.includes(query) || description.includes(query)) {
-                    project.style.display = 'block';
-                  } else {
-                    project.style.display = 'none';
-                  }
-                });
-
-                categories.forEach(category => {
-                  const parentDiv = category.parentElement.nextElementSibling;
-                  const visibleProjects = parentDiv.querySelectorAll('.col[style*="display: block"]');
-                  
-                  if (visibleProjects.length > 0) {
-                    category.parentElement.style.display = 'block';
-                  } else {
-                    category.parentElement.style.display = 'none';
-                  }
-                });
-              });
-            });
-          </script>
-
           <div class="projects">
+            
             <!-- Category 1: AI for Cybersecurity & Privacy -->
             <a id="ai-for-cybersecurity--privacy" href=".#ai-for-cybersecurity--privacy"><h2 class="category">AI for Cybersecurity & Privacy</h2></a>
             <div class="row row-cols-1 row-cols-md-3">
-              <div class="col"><a href="/projects/9_ids_attacks/"><div class="card h-100 hoverable"><img src="/assets/img/ids_shap_features.png" class="card-img-top" width="100%" height="auto" alt="project thumbnail" loading="eager"><div class="card-body"><h2 class="card-title">Launching and Thwarting Attacks on AI-based Intrusion Detection Systems</h2><p class="card-text">Using GANs and SHAP to generate polymorphic attacks for testing and improving the robustness of an IDS.</p></div></div></a></div>
+              <div class="col"><a href="/projects/9_ids_attacks/"><div class="card h-100 hoverable"><img src="/assets/img/ids_shap_barchart.png" class="card-img-top" width="100%" height="auto" alt="project thumbnail" loading="eager"><div class="card-body"><h2 class="card-title">Launching and Thwarting Attacks on AI-based Intrusion Detection Systems</h2><p class="card-text">Using GANs and SHAP to generate polymorphic attacks for testing and improving the robustness of an IDS.</p></div></div></a></div>
               <div class="col"><a href="/projects/6_federated_learning/"><div class="card h-100 hoverable"><img src="/assets/img/federated_learning_flowchart.png" class="card-img-top" width="100%" height="auto" alt="project thumbnail" loading="eager"><div class="card-body"><h2 class="card-title">Distributed Deep Learning for Anomaly Detection via Federated Learning</h2><p class="card-text">A privacy-preserving intrusion detection system using Federated Learning to train models on decentralized data.</p></div></div></a></div>
               <div class="col"><a href="/projects/7_tor_network/"><div class="card h-100 hoverable"><img src="/assets/img/tor_network.png" class="card-img-top" width="100%" height="auto" alt="project thumbnail" loading="eager"><div class="card-body"><h2 class="card-title">TOR Network Detection via Machine Learning</h2><p class="card-text">Building and evaluating machine learning classifiers to identify encrypted TOR network traffic from raw packet data.</p></div></div></a></div>
             </div>
@@ -162,6 +122,9 @@
             <!-- Category 5: Intelligent Systems & User Experience -->
             <a id="intelligent-systems--user-experience" href=".#intelligent-systems--user-experience"><h2 class="category">Intelligent Systems & User Experience</h2></a>
             <div class="row row-cols-1 row-cols-md-3">
+                <!-- NEW PROJECT CARD ADDED HERE -->
+                <div class="col"><a href="/projects/11_call_center_analytics/"><div class="card h-100 hoverable"><img src="/assets/img/call_center_platform.png" class="card-img-top" width="100%" height="auto" alt="project thumbnail" loading="eager"><div class="card-body"><h2 class="card-title">AI-Powered Call Center Analytics Platform</h2><p class="card-text">An end-to-end platform to transcribe, analyze, and visualize call center audio using LLMs and custom Deep Learning models.</p></div></div></a></div>
+                <!-- END NEW PROJECT CARD -->
                 <div class="col"><a href="/projects/1_contradiction_detection/"><div class="card h-100 hoverable"><img src="/assets/img/contradiction_detection.png" class="card-img-top" width="100%" height="auto" alt="project thumbnail" loading="eager"><div class="card-body"><h2 class="card-title">Contradiction Detection in English using LLMs</h2><p class="card-text">A research project using RAG and OpenAI to find conflicting statements in text for a future publication.</p></div></div></a></div>
                 <div class="col"><a href="/projects/3_recipe_recommender/"><div class="card h-100 hoverable"><img src="/assets/img/recipe_recommender.png" class="card-img-top" width="100%" height="auto" alt="project thumbnail" loading="eager"><div class="card-body"><h2 class="card-title">Smart Recipe Recommendation System</h2><p class="card-text">A full-stack Django app recommending recipes based on ingredients and health needs.</p></div></div></a></div>
                 <div class="col"><a href="/projects/4_movie_recommender/"><div class="card h-100 hoverable"><img src="/assets/img/reinforcement_learning_diagram.png" class="card-img-top" width="100%" height="auto" alt="project thumbnail" loading="eager"><div class="card-body"><h2 class="card-title">Generating Explainable Recommendations with Reinforcement Learning</h2><p class="card-text">A hybrid framework combining Biclustering and Q-Learning to solve the cold start and gray sheep problems in movie recommendations.</p></div></div></a></div>
