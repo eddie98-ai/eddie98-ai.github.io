@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AI-Powered Call Center Analytics Platform | Ahmad Debow (Edd)</title>
+    <meta name="author" content="Ahmad Debow">
+    <meta name="description" content="An end-to-end platform to transcribe, analyze, and visualize call center audio using LLMs and custom Deep Learning models.">
+    <meta name="keywords" content="Ahmad Debow, AI, MLOps, DevOps, Machine Learning, Deep Learning, Generative Adversarial Networks, GANs, AWS, GCP, Cloud Computing, Python, Docker, GitLab, CI/CD, Computer Vision, NLP, Large Language Models, Biomedical AI, Intrusion Detection Systems">
+    <!-- Bootstrap & MDB -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous">
+    <!-- Fonts & Icons -->
+    <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5">
+    <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772">
+    <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap">
+    <!-- Code Syntax Highlighting -->
+    <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light">
+    <!-- Styles -->
+    <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%92%BB&lt;/text&gt;&lt;/svg&gt;">
+    <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
+    <link rel="canonical" href="http://localhost:4000/projects/11_call_center_analytics/">
+    <!-- Dark Mode -->
+    <script src="/assets/js/theme.js?a81d82887dd692e91686b43de4542f18"></script>
+    <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark">
+    <script>initTheme();</script>
+  </head>
+  <!-- Body -->
+  <body class="fixed-top-nav ">
+    <!-- Header -->
+    <header>
+      <!-- Nav Bar -->
+      <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation">
+        <div class="container">
+          <a class="navbar-brand title font-weight-lighter" href="/">Ahmad Debow (Edd)</a>
+          <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse text-right" id="navbarNav">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+              <li class="nav-item "><a class="nav-link" href="/">About</a></li>
+              <li class="nav-item "><a class="nav-link" href="/publications/">publications</a></li>
+              <li class="nav-item active"><a class="nav-link" href="/projects/">projects<span class="sr-only">(current)</span></a></li>
+              <li class="nav-item "><a class="nav-link" href="/work/">work</a></li>
+              <li class="nav-item "><a class="nav-link" href="/teaching/">teaching</a></li>
+              <li class="nav-item "><a class="nav-link" href="/cv/">cv</a></li>
+              <li class="nav-item "><a class="nav-link" href="/people/">references</a></li>
+              <li class="toggle-container">
+                <button id="light-toggle" title="Change theme"><i class="ti ti-sun-moon" id="light-toggle-system"></i><i class="ti ti-moon-filled" id="light-toggle-dark"></i><i class="ti ti-sun-filled" id="light-toggle-light"></i></button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <progress id="progress" value="0"><div class="progress-container"><span class="progress-bar"></span></div></progress>
+    </header>
+
+    <!-- Content -->
+    <div class="container mt-5" role="main">
+      <div class="post">
+        <header class="post-header">
+          <h1 class="post-title">AI-Powered Call Center Analytics Platform</h1>
+          <p class="post-description">An end-to-end platform to transcribe, analyze, and visualize call center audio using LLMs and custom Deep Learning models.</p>
+        </header>
+        <article>
+          <p>Call center managers face a significant challenge in effectively analyzing the vast volume of audio calls to extract actionable insights. This project presents an intelligent, AI-driven analytics platform that fully automates the process, from converting audio files into structured transcripts to analyzing them with Large Language Models and culminating in an interactive API for querying results.</p>
+          <hr>
+          <h3 id="1-system-architecture--pipeline">1. System Architecture & Pipeline</h3>
+          <p>The system was designed as an integrated pipeline consisting of several logical phases, each built upon state-of-the-art technologies in Natural Language Processing (NLP) and Deep Learning.</p>
+          
+          <h5 class="mt-4">Phase 1: Speech-to-Text with Speaker Diarization</h5>
+          <p>The foundation of the project is the accurate conversion of audio into text. The advanced <strong>WhisperX</strong> model was chosen for this task due to its ability to provide high-accuracy transcription along with **Speaker Diarization**, which automatically identifies and separates the customer's speech from the agent's—a critical step for all subsequent analysis.</p>
+
+          <h5 class="mt-4">Phase 2: Text Analysis with LLMs</h5>
+          <p>Once structured text was obtained, a suite of pre-trained Transformer models, served via a FastAPI application, was used to extract key features like <strong>Abstractive Summarization</strong> (<code>facebook/bart-large-cnn</code>), <strong>Sentiment Analysis</strong> (<code>cardiffnlp/twitter-roberta-base-sentiment-latest</code>), and initial **Call Outcome Classification** (Zero-Shot with <code>facebook/bart-large-mnli</code>).</p>
+          <hr>
+          <h3 id="2-custom-deep-learning-for-outcome-classification">2. Custom Deep Learning for Outcome Classification</h3>
+          <p>To achieve superior accuracy in determining if a customer's problem was resolved, a custom solution was developed. A <strong><code>DistilBERT</code></strong> model was fine-tuned on a large, tailored dataset (<code>AIxBlock/92k-real-world-call-center-scripts-english</code>), learning the specific patterns of support dialogues to create a highly specialized and accurate classifier.</p>
+          <figure>
+            <picture><img src="/assets/img/call_center_model_architecture.png" width="100%" height="auto" alt="Diagram of the Custom Hierarchical Model Architecture" loading="lazy"></picture>
+            <figcaption class="caption">Architecture of the custom Deep Learning model for outcome classification.</figcaption>
+          </figure>
+          <hr>
+          <h3 id="3-rag-powered-interactive-chatbot">3. RAG-Powered Interactive Chatbot</h3>
+          <p>To make the analyzed data queryable, an advanced chatbot was developed using a <strong>Retrieval-Augmented Generation (RAG)</strong> architecture. This chatbot searches the knowledge base of call summaries to find information relevant to a user's query and then uses the <code>t5-base</code> model to generate a natural, concise answer supported by sources.</p>
+          <figure>
+            <picture><img src="/assets/img/call_center_rag_diagram.png" width="100%" height="auto" alt="Diagram of the RAG Chatbot Architecture" loading="lazy"></picture>
+            <figcaption class="caption">Workflow of the Retrieval-Augmented Generation (RAG) chatbot.</figcaption>
+          </figure>
+          <hr>
+          <h3 id="4-results--statistical-analysis">4. Results & Statistical Analysis</h3>
+          <p>The analysis pipeline was executed on a complete dataset of <strong>1,269 calls</strong>. The results provide a clear overview of customer experience and agent effectiveness. For example, while 66% of calls were problem-oriented (Negative Sentiment), the agents successfully achieved a <strong>Problem Resolution Rate of 72.7%</strong>.</p>
+          <div class="row mt-4">
+              <div class="col-sm-6">
+                  <figure><picture><img src="/assets/img/call_center_sentiment_chart.png" class="img-fluid rounded z-depth-1" alt="Pie chart of sentiment distribution." loading="lazy"></picture><figcaption class="caption">Overall Sentiment Distribution of Calls</figcaption></figure>
+              </div>
+              <div class="col-sm-6">
+                  <figure><picture><img src="/assets/img/call_center_outcomes_chart.png" class="img-fluid rounded z-depth-1" alt="Bar chart of call outcomes." loading="lazy"></picture><figcaption class="caption">Breakdown of Call Outcomes</figcaption></figure>
+              </div>
+          </div>
+          <hr>
+          <h3 id="technical-summary">Technical Summary</h3>
+          <ul>
+            <li><strong>Speech-to-Text:</strong> WhisperX with Speaker Diarization</li>
+            <li><strong>LLM Analysis:</strong> Transformers (BART, RoBERTa), Zero-Shot Classification</li>
+            <li><strong>Custom Model:</strong> Fine-tuned DistilBERT with TensorFlow/Keras</li>
+            <li><strong>Chatbot:</strong> Retrieval-Augmented Generation (RAG) with T5</li>
+            <li><strong>Backend:</strong> FastAPI</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="fixed-bottom" role="contentinfo">
+      <div class="container mt-0">
+        © Copyright 2025 Ahmad Debow. Last updated: August 09, 2025.
+      </div>
+    </footer>
+    <!-- JavaScripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+    <script defer src="/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"></script>
+    <!-- ... and other scripts ... -->
+  </body>
+</html>
